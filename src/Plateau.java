@@ -6,4 +6,5 @@ public class Plateau {
     public Plateau(){
         this.séries = new Série[NBSERIE];
     }
+
 }

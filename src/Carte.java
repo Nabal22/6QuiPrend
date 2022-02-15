@@ -26,10 +26,7 @@ public class Carte {
     }
 
     public String toString() {
-        return "Carte{" +
-                "valeur=" + valeur +
-                ", nbBoeuf=" + nbBoeuf +
-                '}';
+        return " "+valeur+" ("+nbBoeuf+")";
     }
 
     public int getValeur() {

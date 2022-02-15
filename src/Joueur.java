@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class Joueur {
-    private static final int NBCARTESMAINS = 10;
 
     private String nom;
     private ArrayList<Carte> main;
@@ -9,6 +8,8 @@ public class Joueur {
 
     public Joueur(String nom ){
         this.nom = nom;
+        this.main = new ArrayList<>();
+        this.récup = new ArrayList<>();
     }
 
     public String getNom() {
@@ -17,8 +18,22 @@ public class Joueur {
 
     @Override
     public String toString() {
-        return "Joueur{" +
-                "nom='" + nom + '\'' +
-                '}';
+        String tmp = new String();
+        tmp = "Nom "+nom+"\n Main :";
+        for (Carte c : main) tmp+= " -" +  c.toString();
+        tmp += "\n Récupéres";
+        for (Carte c : récup) tmp+= " -" + c.toString();
+
+        return tmp;
+    }
+
+    public void piocher(ArrayList<Carte> cartes){
+        assert (main.size()<10);
+        main.add(cartes.get(cartes.size()-1));
+        cartes.remove(cartes.size()-1);
+    }
+
+    public int getNbCartesMain() {
+        return main.size();
     }
 }
