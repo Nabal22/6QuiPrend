@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/Carte.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Joueur.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Main.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Paquet.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Partie.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Plateau.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/Série.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/util/Demo.java" charset="ISO-8859-1" />
+  </component>
+</project>
