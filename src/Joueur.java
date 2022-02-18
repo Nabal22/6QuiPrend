@@ -1,12 +1,16 @@
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import static util.Console.clearScreen;
+import static util.Console.pause;
 
 public class Joueur {
-
     private String nom;
     private ArrayList<Carte> main;
     private ArrayList<Carte>  récup;
+    private Carte carteChoisie;
 
-    public Joueur(String nom ){
+    public Joueur(String nom){
         this.nom = nom;
         this.main = new ArrayList<>();
         this.récup = new ArrayList<>();
@@ -16,12 +20,23 @@ public class Joueur {
         return nom;
     }
 
-    @Override
-    public String toString() {
+    public int getNbCartesMain() {
+        return main.size();
+    }
+
+    public Carte getCarteChoisie() {
+        return carteChoisie;
+    }
+
+    public String toStringMain(){
         String tmp = new String();
-        tmp = "- Vos cartes :";
-        for (Carte c : main) tmp+= " -" +  c.toString();
-        return tmp+"\nSaissisez votre choix : ";
+        for (int i = 0 ; i < main.size() ; i++){
+            if (i==main.size()-1)
+                tmp += main.get(i).toString();
+            else
+                tmp += main.get(i).toString()+",";
+        }
+        return tmp;
     }
 
     public void piocher(ArrayList<Carte> cartes){
@@ -30,7 +45,34 @@ public class Joueur {
         cartes.remove(cartes.size()-1);
     }
 
-    public int getNbCartesMain() {
-        return main.size();
+    public boolean possède(int valeurCarteChoisie){
+        assert (main.size()!=0);
+        for(Carte carte : main){
+            if (valeurCarteChoisie==carte.getValeur()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Probleme ici le assert ne plante pas le programme
+    public void setCarteChoisie(int valeur){
+        assert(this.possède(valeur));
+        for (int i = 0 ; i < main.size() ; i++){
+            if (valeur==main.get(i).getValeur()){
+                carteChoisie = main.get(i);
+                main.remove(i);
+            }
+        }
+    }
+
+    public void jouerTour(Partie partie, Scanner sc){
+        System.out.println("A "+this.getNom()+" de jouer.");
+        pause();
+        System.out.print(partie.getPlateau().toString());
+        System.out.println("-Vos cartes :"+this.toStringMain());
+        System.out.print("Saissisez votre choix : ");
+        this.setCarteChoisie(sc.nextInt());
+        clearScreen();
     }
 }

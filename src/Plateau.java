@@ -17,11 +17,8 @@ public class Plateau {
     @Override
     public String toString() {
         String tmp = new String();
-        int idSérie = 1;
-        for ( Série s : séries){
-            tmp+= "- série n° "+idSérie+" :"+s.toString();
-            idSérie++;
-        }
+        for (int i = 0 ; i <NBSERIE ; i++)
+            tmp+= "- série n° "+(i+1)+" :"+séries.get(i).toString()+"\n";
         return tmp;
     }
 }

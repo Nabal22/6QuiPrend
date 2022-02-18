@@ -23,6 +23,6 @@ public class Série {
         for (Carte c : contenu){
             tmp += c.toString();
         }
-        return tmp+"\n";
+        return tmp;
     }
 }

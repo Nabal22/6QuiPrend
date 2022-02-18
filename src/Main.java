@@ -17,16 +17,20 @@ public class Main {
         Paquet paquet = new Paquet();
         paquet.melanger();
         paquet.distribuer(partie.getJoueurs());
-        //DisposerSérie
         paquet.disposerSérie(partie.getPlateau().getSéries());
-        System.out.println(partie.getPlateau().toString());
 
-
-        // Un Tour
-
-
-        pause();
-
+        Scanner sc = new Scanner(System.in);
+        String vontEtrePosées = new String();
+        // boucle while tant que le partie n'est pas finie
+        partie.clearCartesChoisies();// Nouveau tour on clear les cartes jouées au tour d'avant
+        for (Joueur j : partie.getJoueurs()){
+            j.jouerTour(partie,sc);
+            partie.ajouterCarteChoisie(j.getCarteChoisie().getValeur());
+        }
+        //Trie et affichage des cartes choisie
+        partie.trierCartesChoisies();
+        System.out.println(partie.toStringCartesChoisies());
+        sc.close();
     }
 
     public static ArrayList<Joueur> enregistrementJoueur(){
