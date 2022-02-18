@@ -19,12 +19,9 @@ public class Joueur {
     @Override
     public String toString() {
         String tmp = new String();
-        tmp = "Nom "+nom+"\n Main :";
+        tmp = "- Vos cartes :";
         for (Carte c : main) tmp+= " -" +  c.toString();
-        tmp += "\n Récupéres";
-        for (Carte c : récup) tmp+= " -" + c.toString();
-
-        return tmp;
+        return tmp+"\nSaissisez votre choix : ";
     }
 
     public void piocher(ArrayList<Carte> cartes){

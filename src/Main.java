@@ -1,5 +1,9 @@
 import com.sun.xml.internal.ws.wsdl.writer.document.Part;
+import java.util.Arrays;
+import java.util.Scanner;
 
+import static util.Console.clearScreen;
+import static util.Console.pause;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Objects;
@@ -13,10 +17,16 @@ public class Main {
         Paquet paquet = new Paquet();
         paquet.melanger();
         paquet.distribuer(partie.getJoueurs());
-        System.out.println("Voici les cartes distribués à chaques personnes.");
-        for (Joueur j : partie.getJoueurs()){
-            System.out.println(j.toString());
-        }
+        //DisposerSérie
+        paquet.disposerSérie(partie.getPlateau().getSéries());
+        System.out.println(partie.getPlateau().toString());
+
+
+        // Un Tour
+
+
+        pause();
+
     }
 
     public static ArrayList<Joueur> enregistrementJoueur(){

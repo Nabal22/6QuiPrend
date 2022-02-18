@@ -26,6 +26,8 @@ public class Carte {
     }
 
     public String toString() {
+        if (nbBoeuf == 0) return " "+valeur;
+        else
         return " "+valeur+" ("+nbBoeuf+")";
     }
 

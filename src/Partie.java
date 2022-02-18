@@ -29,6 +29,10 @@ public class Partie {
         return true;
     }
 
+    public Plateau getPlateau(){
+        return plateau;
+    }
+
     public ArrayList<Joueur> getJoueurs() {
         return joueurs;
     }

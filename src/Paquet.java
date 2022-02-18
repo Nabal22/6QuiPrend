@@ -29,6 +29,14 @@ public class Paquet {
         }
     }
 
+    public void disposerSérie(ArrayList<Série> séries){
+        assert (séries.size() == 4);
+        for (Série s : séries){
+            s.ajouter(contenu.get(contenu.size()-1));
+            contenu.remove(contenu.size()-1);
+        }
+    }
+
     public void affichePaquet(){
         for (Carte i : this.contenu){
             System.out.println(i.toString());
