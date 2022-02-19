@@ -57,12 +57,9 @@ public class Joueur {
 
     // Probleme ici le assert ne plante pas le programme
     public void setCarteChoisie(int valeur){
-        assert(this.possède(valeur));
-        for (int i = 0 ; i < main.size() ; i++){
-            if (valeur==main.get(i).getValeur()){
-                carteChoisie = main.get(i);
-                main.remove(i);
-            }
+        for (int i = 0;i < main.size() ; i++){
+            carteChoisie = main.get(i);
+            main.remove(i);
         }
     }
 
@@ -72,7 +69,17 @@ public class Joueur {
         System.out.print(partie.getPlateau().toString());
         System.out.println("-Vos cartes :"+this.toStringMain());
         System.out.print("Saissisez votre choix : ");
-        this.setCarteChoisie(sc.nextInt());
+        boolean valeurVraiFaux = true;
+        while(valeurVraiFaux) {
+            int carteJoué = sc.nextInt();
+            if (this.possède(carteJoué)) {
+                this.setCarteChoisie(carteJoué);
+                valeurVraiFaux = false;
+            }
+            else {
+                System.out.print("Vous n'avez pas cette carte, saisissez votre choix : ");
+            }
+        }
         clearScreen();
     }
 }
