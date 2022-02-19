@@ -28,14 +28,6 @@ public class Joueur {
         return carteChoisie;
     }
 
-    public void trierMain(){
-        for(int i = 0; i<main.taille();i++){
-            if (main.getCarteMain(i).getValeur() > main.getCarteMain(i+1).getValeur()){
-                Carte tmp = main.getCarteMain(i);
-
-            }
-        }
-    }
 
     public boolean possède(int valeurCarteChoisie){
         assert (main.taille()!=0);
@@ -59,6 +51,7 @@ public class Joueur {
         System.out.println("A "+this.getNom()+" de jouer.");
         pause();
         System.out.print(partie.getPlateau().toString());
+        this.main.trierMain();
         System.out.println("-Vos cartes :"+this.getMain().toStringMain());
         System.out.print("Saissisez votre choix : ");
         boolean valeurVraiFaux = true;
