@@ -6,13 +6,13 @@ import static util.Console.pause;
 
 public class Joueur {
     private String nom;
-    private ArrayList<Carte> main;
-    private ArrayList<Carte>  récup;
+    private Main main;
+    private ArrayList<Carte> récup;
     private Carte carteChoisie;
 
     public Joueur(String nom){
         this.nom = nom;
-        this.main = new ArrayList<>();
+        this.main = new Main();
         this.récup = new ArrayList<>();
     }
 
@@ -20,34 +20,26 @@ public class Joueur {
         return nom;
     }
 
-    public int getNbCartesMain() {
-        return main.size();
+    public Main getMain() {
+        return main;
     }
 
     public Carte getCarteChoisie() {
         return carteChoisie;
     }
 
-    public String toStringMain(){
-        String tmp = new String();
-        for (int i = 0 ; i < main.size() ; i++){
-            if (i==main.size()-1)
-                tmp += main.get(i).toString();
-            else
-                tmp += main.get(i).toString()+",";
-        }
-        return tmp;
-    }
+    public void trierMain(){
+        for(int i = 0; i<main.taille();i++){
+            if (main.getCarteMain(i).getValeur() > main.getCarteMain(i+1).getValeur()){
+                Carte tmp = main.getCarteMain(i);
 
-    public void piocher(ArrayList<Carte> cartes){
-        assert (main.size()<10);
-        main.add(cartes.get(cartes.size()-1));
-        cartes.remove(cartes.size()-1);
+            }
+        }
     }
 
     public boolean possède(int valeurCarteChoisie){
-        assert (main.size()!=0);
-        for(Carte carte : main){
+        assert (main.taille()!=0);
+        for(Carte carte : this.getMain().getMain()){
             if (valeurCarteChoisie==carte.getValeur()){
                 return true;
             }
@@ -57,9 +49,9 @@ public class Joueur {
 
     // Probleme ici le assert ne plante pas le programme
     public void setCarteChoisie(int valeur){
-        for (int i = 0;i < main.size() ; i++){
-            carteChoisie = main.get(i);
-            main.remove(i);
+        for (int i = 0;i < main.taille() ; i++){
+            carteChoisie = main.getCarteMain(i);
+            main.getMain().remove(i);
         }
     }
 
@@ -67,7 +59,7 @@ public class Joueur {
         System.out.println("A "+this.getNom()+" de jouer.");
         pause();
         System.out.print(partie.getPlateau().toString());
-        System.out.println("-Vos cartes :"+this.toStringMain());
+        System.out.println("-Vos cartes :"+this.getMain().toStringMain());
         System.out.print("Saissisez votre choix : ");
         boolean valeurVraiFaux = true;
         while(valeurVraiFaux) {

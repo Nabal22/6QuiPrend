@@ -27,7 +27,7 @@ public class Partie {
 
     public boolean estFinie(){
         for ( Joueur j : joueurs){
-            if (j.getNbCartesMain()!=0) return false;
+            if (j.getMain().getNbCartesMain()!=0) return false;
         }
         return true;
     }

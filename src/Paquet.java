@@ -25,7 +25,7 @@ public class Paquet {
     public void distribuer(ArrayList<Joueur> joueurs){
         assert (joueurs.size()!=0);
         for ( Joueur j : joueurs) {
-            for (int i = 0; i < 10; i++) j.piocher(contenu);
+            for (int i = 0; i < 10; i++) j.getMain().piocher(contenu);
         }
     }
 
