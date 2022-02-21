@@ -40,6 +40,8 @@ public class Partie {
         return joueurs;
     }
 
+    public ArrayList<Integer> getValeursCartesChoisies(){return valeursCartesChoisies;}
+
     public void ajouterCarteChoisie(int valeur){
         valeursCartesChoisies.add(valeur);
     }
@@ -50,9 +52,6 @@ public class Partie {
 
     public void trierCartesChoisies(){
         Collections.sort(valeursCartesChoisies);
-        for (int i : valeursCartesChoisies){
-            System.out.println(i);
-        }
     }
 
     public String toStringCartesChoisies(){
@@ -72,8 +71,9 @@ public class Partie {
         for(int vCartes : valeursCartesChoisies){
 
         }
-        return tmp+"ont été posées.";
+        return tmp+"vont être posées.";
     }
+
     public Joueur getJoueurCarteChoisie(int vCarte){
         for (Joueur j : joueurs){
             if (vCarte==j.getCarteChoisie().getValeur()){

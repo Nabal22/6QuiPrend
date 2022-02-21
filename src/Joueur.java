@@ -30,7 +30,7 @@ public class Joueur {
 
 
     public boolean possède(int valeurCarteChoisie){
-        assert (main.taille()!=0);
+        assert (main.getNbCartesMain()!=0);
         for(Carte carte : this.getMain().getMain()){
             if (valeurCarteChoisie==carte.getValeur()){
                 return true;
@@ -39,12 +39,8 @@ public class Joueur {
         return false;
     }
 
-    // Probleme ici le assert ne plante pas le programme
     public void setCarteChoisie(int valeur){
-        for (int i = 0;i < main.taille() ; i++){
-            carteChoisie = main.getCarteMain(i);
-            main.getMain().remove(i);
-        }
+        carteChoisie = main.getCarteMainByValeur(valeur);
     }
 
     public void jouerTour(Partie partie, Scanner sc){

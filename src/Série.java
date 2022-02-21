@@ -17,6 +17,10 @@ public class Série {
         contenu.add(c);
    }
 
+   public Carte getLastCarte(){
+        return contenu.get(contenu.size()-1);
+   }
+
     @Override
     public String toString() {
         String tmp = new String();

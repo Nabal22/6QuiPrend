@@ -12,29 +12,37 @@ public class Main {
     }
 
     public void piocher(ArrayList<Carte> cartes){
-        assert (taille()<10);
+        assert (getNbCartesMain()<10);
         main.add(cartes.get(cartes.size()-1));
         cartes.remove(cartes.size()-1);
     }
 
-    public Carte getCarteMain(int i) {
-        return this.main.get(i);
+    // récupère une carte en fonction de sa valeur
+    public Carte getCarteMainByValeur(int v) {
+        Carte c = null;
+        for (int i = 0 ; i < getNbCartesMain() ; i++){
+            if (v == main.get(i).getValeur()){
+                c = main.get(i);
+                main.remove(i);
+            }
+        }
+        return c;
     }
 
-    public int getNbCartesMain() {
-        return this.taille();
+    public Carte getCarteMainById(int i) {
+        return main.get(i);
     }
 
-    public int taille(){
+    public int getNbCartesMain(){
         return main.size();
     }
 
     public void trierMain(){
-        for(int i = 1; i<taille(); i++){
-            Carte tmp = getCarteMain(i);
+        for(int i = 1; i<getNbCartesMain(); i++){
+            Carte tmp = getCarteMainById(i);
             int j = i-1;
-            while(j >= 0 && getCarteMain(j).getValeur() > tmp.getValeur()){
-                setCarteMain(j+1,getCarteMain(j));
+            while(j >= 0 && getCarteMainById(j).getValeur() > tmp.getValeur()){
+                setCarteMain(j+1,getCarteMainById(j));
                 j--;
             }
             setCarteMain(j+1, tmp);
@@ -45,14 +53,13 @@ public class Main {
         this.main.set(i, carte);
     }
 
-
     public String toStringMain(){
         String tmp = new String();
-        for (int i = 0 ; i < taille() ; i++){
-            if (i==taille()-1)
-                tmp += getCarteMain(i).toString();
+        for (int i = 0 ; i < getNbCartesMain() ; i++){
+            if (i==getNbCartesMain()-1)
+                tmp += getCarteMainById(i).toString();
             else
-                tmp += getCarteMain(i).toString()+",";
+                tmp += getCarteMainById(i).toString()+",";
         }
         return tmp;
     }

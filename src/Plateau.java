@@ -14,6 +14,13 @@ public class Plateau {
         return séries;
     }
 
+    public boolean estPosable(int i){
+        for(Série s : séries){
+            if (s.getLastCarte().getValeur() < i) return true;
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         String tmp = new String();

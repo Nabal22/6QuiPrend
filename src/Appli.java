@@ -16,14 +16,24 @@ public class Appli {
         Scanner sc = new Scanner(System.in);
         String vontEtrePosées = new String();
         // boucle while tant que le partie n'est pas finie
-        partie.clearCartesChoisies();// Nouveau tour on clear les cartes jouées au tour d'avant
-        for (Joueur j : partie.getJoueurs()){
-            j.jouerTour(partie,sc);
-            partie.ajouterCarteChoisie(j.getCarteChoisie().getValeur());
+        while (!partie.estFinie()){
+            partie.clearCartesChoisies();// Nouveau tour on clear les cartes jouées au tour d'avant
+            for (Joueur j : partie.getJoueurs()){
+                j.jouerTour(partie,sc);
+                partie.ajouterCarteChoisie(j.getCarteChoisie().getValeur());
+            }
+            //Trie et affichage des cartes choisie
+            partie.trierCartesChoisies();
+            System.out.println(partie.toStringCartesChoisies());
+            for (int i : partie.getValeursCartesChoisies()){
+                if (partie.getPlateau().estPosable(i)) {
+
+                }
+                else{
+
+                }
+            }
         }
-        //Trie et affichage des cartes choisie
-        partie.trierCartesChoisies();
-        System.out.println(partie.toStringCartesChoisies());
         sc.close();
     }
 
