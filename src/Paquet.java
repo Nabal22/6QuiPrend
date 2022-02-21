@@ -11,7 +11,7 @@ public class Paquet {
 
     public Paquet (){
         this.contenu = new ArrayList<Carte>();
-        for (int i = 1;i<=104 ;i++ ) {
+        for (int i = 1;i<=NBCARTESMAX ;i++ ) {
             Carte c = new Carte(i);
             this.contenu.add(c);
         }
@@ -34,12 +34,6 @@ public class Paquet {
         for (Série s : séries){
             s.ajouter(contenu.get(contenu.size()-1));
             contenu.remove(contenu.size()-1);
-        }
-    }
-
-    public void affichePaquet(){
-        for (Carte i : this.contenu){
-            System.out.println(i.toString());
         }
     }
 }

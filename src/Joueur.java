@@ -16,7 +16,7 @@ public class Joueur {
         this.récup = new ArrayList<>();
     }
 
-    public String getNom() {
+    public String toString() {
         return nom;
     }
 
@@ -29,22 +29,11 @@ public class Joueur {
     }
 
 
-    public boolean possède(int valeurCarteChoisie){
-        assert (main.getNbCartesMain()!=0);
-        for(Carte carte : this.getMain().getMain()){
-            if (valeurCarteChoisie==carte.getValeur()){
-                return true;
-            }
-        }
-        return false;
-    }
+    //possède renomé en contient et déplacé dans la main
 
-    public void setCarteChoisie(int valeur){
-        carteChoisie = main.getCarteMainByValeur(valeur);
-    }
 
     public void jouerTour(Partie partie, Scanner sc){
-        System.out.println("A "+this.getNom()+" de jouer.");
+        System.out.println("A "+this.toString()+" de jouer.");
         pause();
         System.out.print(partie.getPlateau().toString());
         this.main.trierMain();
@@ -52,9 +41,9 @@ public class Joueur {
         System.out.print("Saissisez votre choix : ");
         boolean valeurVraiFaux = true;
         while(valeurVraiFaux) {
-            int carteJoué = sc.nextInt();
-            if (this.possède(carteJoué)) {
-                this.setCarteChoisie(carteJoué);
+            int valeurCarteJouée = sc.nextInt();
+            if (this.main.contient(valeurCarteJouée)) {
+                this.carteChoisie = main.getCarteMainByValeur(valeurCarteJouée);
                 valeurVraiFaux = false;
             }
             else {

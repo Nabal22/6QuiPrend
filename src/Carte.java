@@ -8,7 +8,6 @@ public class Carte {
     public Carte(int valeur) {
         assert (valeur >= MIN  && valeur <= MAXVALEUR );
         this.valeur=valeur;
-
         String valeurString = new String() ;
         valeurString = ""+valeur;
 

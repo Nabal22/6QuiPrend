@@ -18,10 +18,10 @@ public class Partie {
         for (int i = 0 ; i < joueurs.size(); i++)
         {
             if (i == joueurs.size()-1)
-                System.out.println(" "+ joueurs.get(i).getNom()+". Merci de jouer à 6 qui prend !");
-            else if (i == joueurs.size()-2) System.out.print(" "+ joueurs.get(i).getNom()+" et " );
+                System.out.println(" "+ joueurs.get(i).toString()+". Merci de jouer à 6 qui prend !");
+            else if (i == joueurs.size()-2) System.out.print(" "+ joueurs.get(i).toString()+" et " );
             else
-                System.out.print(" "+ joueurs.get(i).getNom()+"," );
+                System.out.print(" "+ joueurs.get(i).toString()+"," );
         }
     }
 
@@ -60,13 +60,13 @@ public class Partie {
         for (int i = 0 ; i < valeursCartesChoisies.size() ; i++){
             if (i== valeursCartesChoisies.size()-1)
                 tmp +=" et "+valeursCartesChoisies.get(i) +" (" +
-                        getJoueurCarteChoisie(valeursCartesChoisies.get(i)).getNom() + ") " ;
+                        getJoueurCarteChoisie(valeursCartesChoisies.get(i)).toString() + ") " ;
             else if (i== valeursCartesChoisies.size()-1)
             tmp += " "+ valeursCartesChoisies.get(i) +" (" +
-                    getJoueurCarteChoisie(valeursCartesChoisies.get(i)).getNom() + ") " ;
+                    getJoueurCarteChoisie(valeursCartesChoisies.get(i)).toString() + ") " ;
             else
                 tmp += " "+valeursCartesChoisies.get(i) +" (" +
-                        getJoueurCarteChoisie(valeursCartesChoisies.get(i)).getNom() + ")," ;
+                        getJoueurCarteChoisie(valeursCartesChoisies.get(i)).toString() + ")," ;
         }
         for(int vCartes : valeursCartesChoisies){
 
