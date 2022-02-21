@@ -1,3 +1,5 @@
+package Jeu;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -27,9 +29,21 @@ public class Partie {
 
     public boolean estFinie(){
         for ( Joueur j : joueurs){
-            if (j.getMain().getNbCartesMain()!=0) return false;
+            if (j.nbCartesDansMain()!=0) return false;
         }
         return true;
+    }
+
+    public void jouerTour(){
+        // valeurs triées donc on a juste à regarder le plus petit élément pour savoir si c'est posable ou non
+        for (int i : valeursCartesChoisies){
+            if (plateau.estPosable(i)) {
+                this.getJoueurParCarteChoisie(i).poser(plateau);
+            }
+            else{
+
+            }
+        }
     }
 
     public Plateau getPlateau(){
@@ -40,7 +54,14 @@ public class Partie {
         return joueurs;
     }
 
-    public ArrayList<Integer> getValeursCartesChoisies(){return valeursCartesChoisies;}
+    public Joueur getJoueurParCarteChoisie(int vCarte){
+        for (Joueur j : joueurs){
+            if (vCarte==j.getValeurCarteChoisie()){
+                return j;
+            }
+        }
+        return null;
+    }
 
     public void ajouterCarteChoisie(int valeur){
         valeursCartesChoisies.add(valeur);
@@ -60,26 +81,17 @@ public class Partie {
         for (int i = 0 ; i < valeursCartesChoisies.size() ; i++){
             if (i== valeursCartesChoisies.size()-1)
                 tmp +=" et "+valeursCartesChoisies.get(i) +" (" +
-                        getJoueurCarteChoisie(valeursCartesChoisies.get(i)).toString() + ") " ;
+                        getJoueurParCarteChoisie(valeursCartesChoisies.get(i)).toString() + ") " ;
             else if (i== valeursCartesChoisies.size()-1)
             tmp += " "+ valeursCartesChoisies.get(i) +" (" +
-                    getJoueurCarteChoisie(valeursCartesChoisies.get(i)).toString() + ") " ;
+                    getJoueurParCarteChoisie(valeursCartesChoisies.get(i)).toString() + ") " ;
             else
                 tmp += " "+valeursCartesChoisies.get(i) +" (" +
-                        getJoueurCarteChoisie(valeursCartesChoisies.get(i)).toString() + ")," ;
+                        getJoueurParCarteChoisie(valeursCartesChoisies.get(i)).toString() + ")," ;
         }
         for(int vCartes : valeursCartesChoisies){
 
         }
         return tmp+"vont être posées.";
-    }
-
-    public Joueur getJoueurCarteChoisie(int vCarte){
-        for (Joueur j : joueurs){
-            if (vCarte==j.getCarteChoisie().getValeur()){
-                return j;
-            }
-        }
-        return null;
     }
 }

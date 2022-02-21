@@ -1,3 +1,5 @@
+package Jeu;
+
 import java.util.ArrayList;
 
 public class Plateau {
@@ -8,6 +10,20 @@ public class Plateau {
     public Plateau(){
         this.séries = new ArrayList<>();
         for (int i = 0 ; i < NBSERIE ; i++) séries.add(new Série());
+    }
+
+    public void placer(Carte carte){
+        int tmp=104,idSérie = -1,i;
+        for (i = 0; i < NBSERIE ; i++){
+            if ((carte.getValeur() - séries.get(i).getLastCarte().getValeur()) < tmp
+            && carte.getValeur() > séries.get(i).getLastCarte().getValeur()
+            && !séries.get(i).estPleine() )
+            {
+                tmp = carte.getValeur() - séries.get(i).getLastCarte().getValeur();
+                idSérie = i;
+            }
+        }
+        séries.get(idSérie).ajouter(carte);
     }
 
     public ArrayList<Série> getSéries() {

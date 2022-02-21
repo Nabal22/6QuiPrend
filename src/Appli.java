@@ -1,3 +1,7 @@
+import Jeu.Joueur;
+import Jeu.Paquet;
+import Jeu.Partie;
+
 import java.util.Scanner;
 
 import java.io.FileInputStream;
@@ -14,25 +18,19 @@ public class Appli {
         paquet.disposerSérie(partie.getPlateau().getSéries());
 
         Scanner sc = new Scanner(System.in);
-        String vontEtrePosées = new String();
-        // boucle while tant que le partie n'est pas finie
         while (!partie.estFinie()){
             partie.clearCartesChoisies();// Nouveau tour on clear les cartes jouées au tour d'avant
             for (Joueur j : partie.getJoueurs()){
                 j.jouerTour(partie,sc);
-                partie.ajouterCarteChoisie(j.getCarteChoisie().getValeur());
+                partie.ajouterCarteChoisie(j.getValeurCarteChoisie());
             }
             //Trie et affichage des cartes choisie
             partie.trierCartesChoisies();
             System.out.println(partie.toStringCartesChoisies());
-            for (int i : partie.getValeursCartesChoisies()){
-                if (partie.getPlateau().estPosable(i)) {
+            //A mon avis il faut faire la boucle suivante dans la classe partie
+            //ça nous enlevera plein de getter.
+            partie.jouerTour();
 
-                }
-                else{
-
-                }
-            }
         }
         sc.close();
     }

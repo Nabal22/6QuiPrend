@@ -1,12 +1,13 @@
-import javafx.animation.PauseTransition;
-import java.util.*;
+package Jeu;
 
+import Jeu.Carte;
+import Jeu.Joueur;
+
+import java.util.*;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class Paquet {
     private static final int NBCARTESMAX = 104;
-
     private ArrayList<Carte> contenu;
 
     public Paquet (){
@@ -25,7 +26,7 @@ public class Paquet {
     public void distribuer(ArrayList<Joueur> joueurs){
         assert (joueurs.size()!=0);
         for ( Joueur j : joueurs) {
-            for (int i = 0; i < 10; i++) j.getMain().piocher(contenu);
+            for (int i = 0; i < 10; i++) j.piocher(contenu);
         }
     }
 

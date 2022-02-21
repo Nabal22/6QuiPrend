@@ -1,3 +1,7 @@
+package Jeu;
+
+import Jeu.Carte;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -5,6 +9,10 @@ public class Main {
 
     public Main(){
         this.contenu = new ArrayList<>();
+    }
+
+    private void setCarteMain(int i, Carte carte) {
+        this.contenu.set(i, carte);
     }
 
     public boolean contient(int valeurCarteChoisie){
@@ -17,7 +25,7 @@ public class Main {
         return false;
     }
 
-    public void piocher(ArrayList<Carte> cartes){
+    public void ajouterCarteDe(ArrayList<Carte> cartes){
         assert (getNbCartesMain()<10);
         contenu.add(cartes.get(cartes.size()-1));
         cartes.remove(cartes.size()-1);
@@ -49,10 +57,6 @@ public class Main {
             }
             setCarteMain(j+1, tmp);
         }
-    }
-
-    private void setCarteMain(int i, Carte carte) {
-        this.contenu.set(i, carte);
     }
 
     public String toStringMain(){

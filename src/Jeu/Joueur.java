@@ -1,3 +1,5 @@
+package Jeu;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,28 +18,32 @@ public class Joueur {
         this.récup = new ArrayList<>();
     }
 
+    public int getValeurCarteChoisie() {
+        return carteChoisie.getValeur();
+    }
+
     public String toString() {
         return nom;
     }
 
-    public Main getMain() {
-        return main;
+    public void poser(Plateau plateau){
+        plateau.placer(carteChoisie);
     }
 
-    public Carte getCarteChoisie() {
-        return carteChoisie;
+    public void piocher(ArrayList<Carte> cartes){
+        main.ajouterCarteDe(cartes);
     }
 
-
-    //possède renomé en contient et déplacé dans la main
-
+    public int nbCartesDansMain(){
+        return main.getNbCartesMain();
+    }
 
     public void jouerTour(Partie partie, Scanner sc){
         System.out.println("A "+this.toString()+" de jouer.");
         pause();
         System.out.print(partie.getPlateau().toString());
         this.main.trierMain();
-        System.out.println("-Vos cartes :"+this.getMain().toStringMain());
+        System.out.println("-Vos cartes :"+this.main.toStringMain());
         System.out.print("Saissisez votre choix : ");
         boolean valeurVraiFaux = true;
         while(valeurVraiFaux) {
@@ -52,4 +58,5 @@ public class Joueur {
         }
         clearScreen();
     }
+
 }

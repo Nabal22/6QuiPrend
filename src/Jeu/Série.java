@@ -1,3 +1,5 @@
+package Jeu;
+
 import java.util.ArrayList;
 
 public class Série {
@@ -8,20 +10,19 @@ public class Série {
         this.contenu = new ArrayList<>();
     }
 
-   public boolean estPleine (){
-        return (contenu.size() == 5);
+    public boolean estPleine (){
+        return (contenu.size() == MAXCONTENUSERIE);
    }
 
-   public void ajouter(Carte c){
+    public void ajouter(Carte c){
         assert (this.estPleine());
         contenu.add(c);
    }
 
-   public Carte getLastCarte(){
+    public Carte getLastCarte(){
         return contenu.get(contenu.size()-1);
    }
 
-    @Override
     public String toString() {
         String tmp = new String();
         for (Carte c : contenu){

@@ -1,3 +1,5 @@
+package Jeu;
+
 public class Carte {
     private final int MIN = 1;
     private final int MAXVALEUR = 104;
