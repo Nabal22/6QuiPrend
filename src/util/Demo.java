@@ -9,7 +9,7 @@ public class Demo {
 	// D?monstration
 	public static void main(String[] args) {
 		pause();
-		clearScreen(); // ou util.Cleaner.clearScreen(); voir le 'import static' ci-dessus
+		clearScreen(); // ou util.Cleaner.clearScreen(); voir le 'import static' ci-dessus test
 		compteur();
 		ventilateur();
 		pause();
