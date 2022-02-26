@@ -21,13 +21,14 @@ public class Carte {
                 this.nbBoeuf+=2;
                 break;
             default:
+                this.nbBoeuf+=1;
                 break;
         }
         if (valeurString.length()==2 && (valeurString.charAt(0)==valeurString.charAt(1))) this.nbBoeuf+=5;
     }
 
-    public String toString() {
-        if (nbBoeuf == 0) return " "+valeur;
+    public String toString()  {
+        if (nbBoeuf <= 1) return " "+valeur;
         else
         return " "+valeur+" ("+nbBoeuf+")";
     }

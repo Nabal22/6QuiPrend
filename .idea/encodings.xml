@@ -3,17 +3,12 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/Appli.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/Jeu/Carte.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/Jeu/Carte.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/Jeu/Joueur.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/Jeu/Joueur.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/Jeu/Paquet.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/Jeu/Paquet.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/Jeu/Partie.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/Jeu/Partie.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/Jeu/Plateau.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/Jeu/Plateau.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/Jeu/Série.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/Jeu/Série.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/util/Demo.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/../Enonce/trace.txt" charset="windows-1252" />
   </component>
 </project>

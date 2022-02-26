@@ -24,17 +24,12 @@ public class Appli {
                 j.jouerTour(partie,sc);
                 partie.ajouterCarteChoisie(j.getValeurCarteChoisie());
             }
-            //Trie et affichage des cartes choisie
             partie.trierCartesChoisies();
-            System.out.println(partie.toStringCartesChoisies());
-            //A mon avis il faut faire la boucle suivante dans la classe partie
-            //ça nous enlevera plein de getter.
-            partie.jouerTour();
-
+            partie.jouerTour(sc);
         }
+        System.out.println(partie.toStringFinal());
         sc.close();
     }
-
     public static ArrayList<Joueur> enregistrementJoueur(){
         try {
             Scanner fichier = new Scanner(new FileInputStream("config.txt"));

@@ -13,10 +13,26 @@ public class Série {
     public boolean estPleine (){
         return (contenu.size() == MAXCONTENUSERIE);
    }
+   public boolean estVide(){
+        if (contenu.size()==0) return true;
+        else return false;
+   }
+
+   public void clear(){
+        contenu.clear();
+   }
 
     public void ajouter(Carte c){
         assert (this.estPleine());
         contenu.add(c);
+   }
+
+   public int getNbTeteDeBoeufs(){
+        int totalTeteDeBoeufs = 0;
+        for(Carte c : contenu){
+            totalTeteDeBoeufs+= c.getNbBoeuf();
+        }
+        return totalTeteDeBoeufs;
    }
 
     public Carte getLastCarte(){

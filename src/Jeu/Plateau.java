@@ -12,15 +12,31 @@ public class Plateau {
         for (int i = 0 ; i < NBSERIE ; i++) séries.add(new Série());
     }
 
+    public int getNbTeteDeBoeufsFromSérie(int idSérie){
+        for(int i = 0 ; i < séries.size() ; i ++ ){
+            if (i == idSérie) return séries.get(i).getNbTeteDeBoeufs();
+        }
+        return 0;
+    }
+
+    public void clearSérie(int idSérie){
+        séries.get(idSérie).clear();
+    }
+
     public void placer(Carte carte){
         int tmp=104,idSérie = -1,i;
         for (i = 0; i < NBSERIE ; i++){
-            if ((carte.getValeur() - séries.get(i).getLastCarte().getValeur()) < tmp
-            && carte.getValeur() > séries.get(i).getLastCarte().getValeur()
-            && !séries.get(i).estPleine() )
-            {
-                tmp = carte.getValeur() - séries.get(i).getLastCarte().getValeur();
+            if (séries.get(i).estVide()){
                 idSérie = i;
+            }
+            else{
+                if ((carte.getValeur() - séries.get(i).getLastCarte().getValeur()) < tmp
+                && carte.getValeur() > séries.get(i).getLastCarte().getValeur()
+                && !séries.get(i).estPleine())
+                {
+                    tmp = carte.getValeur() - séries.get(i).getLastCarte().getValeur();
+                    idSérie = i;
+                }
             }
         }
         séries.get(idSérie).ajouter(carte);
@@ -37,7 +53,6 @@ public class Plateau {
         return false;
     }
 
-    @Override
     public String toString() {
         String tmp = new String();
         for (int i = 0 ; i <NBSERIE ; i++)

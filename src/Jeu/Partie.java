@@ -2,6 +2,9 @@ package Jeu;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
+
+// Mettre des privates dans partie pour les méthodes qui sont utilisées que dans JouerTour
 
 public class Partie {
     private static final int NBJOUEURMIN = 2;
@@ -27,6 +30,10 @@ public class Partie {
         }
     }
 
+    private void clearTetesDeBoeufsJoueurs(){
+        for (Joueur j : joueurs) j.clearTetesDeBoeufs();
+    }
+
     public boolean estFinie(){
         for ( Joueur j : joueurs){
             if (j.nbCartesDansMain()!=0) return false;
@@ -34,16 +41,39 @@ public class Partie {
         return true;
     }
 
-    public void jouerTour(){
-        // valeurs triées donc on a juste à regarder le plus petit élément pour savoir si c'est posable ou non
+    public void jouerTour(Scanner sc){
+        boolean joueurARamassé = false;
+        this.clearTetesDeBoeufsJoueurs();
         for (int i : valeursCartesChoisies){
             if (plateau.estPosable(i)) {
                 this.getJoueurParCarteChoisie(i).poser(plateau);
             }
             else{
-
+                joueurARamassé = true;
+                Joueur j = this.getJoueurParCarteChoisie(i);
+                System.out.println(this.toStringCartesChoisies(true));
+                System.out.println("Pour poser la carte "+i+", "+j.toString()+
+                        " doit choisir la série qu'il va ramasser.");
+                System.out.print(this.plateau.toString());
+                System.out.print("Saissisez votre choix : ");
+                int choix = sc.nextInt();
+                --choix;// modifier pour prendre en compte les erreurs
+                j.ajouterTetesDeBoeufs(plateau.getNbTeteDeBoeufsFromSérie(choix));
+                plateau.clearSérie(choix);
+                j.poser(plateau);
             }
         }
+        System.out.println(this.toStringCartesChoisies(false));
+        System.out.print(this.plateau.toString());
+        System.out.println(this.toStringTetesDeBoeufs(joueurARamassé));
+    }
+
+    public String toStringFinal(){
+        String tmp ="** Score final\n";
+        for (Joueur j : joueurs){
+            tmp += j.toStringFinal();
+        }
+        return tmp;
     }
 
     public Plateau getPlateau(){
@@ -75,7 +105,7 @@ public class Partie {
         Collections.sort(valeursCartesChoisies);
     }
 
-    public String toStringCartesChoisies(){
+    public String toStringCartesChoisies(boolean vontEtrePosées){
         String tmp = new String();
         tmp = "Les cartes";
         for (int i = 0 ; i < valeursCartesChoisies.size() ; i++){
@@ -92,6 +122,18 @@ public class Partie {
         for(int vCartes : valeursCartesChoisies){
 
         }
-        return tmp+"vont être posées.";
+        if (vontEtrePosées) return tmp+"vont être posées.";
+        else return tmp+"ont été posées.";
+    }
+
+    public String toStringTetesDeBoeufs(boolean joueurARamassé){
+        if (joueurARamassé) {
+            String tmp = "";
+            for(Joueur j : joueurs){
+                tmp +=j.toStringRamassé();
+            }
+            return tmp;
+        }
+        else return "Aucun joueur ne ramasse de tête de boeufs.";
     }
 }

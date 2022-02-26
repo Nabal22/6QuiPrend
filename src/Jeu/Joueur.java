@@ -9,21 +9,25 @@ import static util.Console.pause;
 public class Joueur {
     private String nom;
     private Main main;
-    private ArrayList<Carte> récup;
     private Carte carteChoisie;
+    private int nbTetesDeBoeufsRamassées;
+    private int NbTetesDeBoeufsRamasséesCeTour;
 
     public Joueur(String nom){
         this.nom = nom;
         this.main = new Main();
-        this.récup = new ArrayList<>();
+        this.nbTetesDeBoeufsRamassées = 0;
+        this.nbTetesDeBoeufsRamassées = 0;
+    }
+    public void clearTetesDeBoeufs(){NbTetesDeBoeufsRamasséesCeTour = 0;}//ne pas oublier de clear a chaque tour
+
+    public void ajouterTetesDeBoeufs(int i){
+        NbTetesDeBoeufsRamasséesCeTour = i;
+        nbTetesDeBoeufsRamassées+=i;
     }
 
     public int getValeurCarteChoisie() {
         return carteChoisie.getValeur();
-    }
-
-    public String toString() {
-        return nom;
     }
 
     public void poser(Plateau plateau){
@@ -59,4 +63,16 @@ public class Joueur {
         clearScreen();
     }
 
+    public String toString() {
+        return nom;
+    }
+
+    public String toStringRamassé(){
+        if (NbTetesDeBoeufsRamasséesCeTour>0)
+            return this.nom+" a ramassée "+this.NbTetesDeBoeufsRamasséesCeTour+" têtes de boeufs\n";
+        else return "";
+    }
+
+    public String toStringFinal(){
+        return this.nom +" a ramassé "+ this.nbTetesDeBoeufsRamassées+" têtes de boeufs\n"; }
 }
