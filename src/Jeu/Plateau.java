@@ -28,6 +28,7 @@ public class Plateau {
         for (i = 0; i < NBSERIE ; i++){
             if (séries.get(i).estVide()){
                 idSérie = i;
+                break;
             }
             else{
                 if ((carte.getValeur() - séries.get(i).getLastCarte().getValeur()) < tmp
@@ -47,10 +48,16 @@ public class Plateau {
     }
 
     public boolean estPosable(int i){
+        int difference = i - séries.get(0).getLastCarte().getValeur();
+        boolean retour = true;
         for(Série s : séries){
-            if (s.getLastCarte().getValeur() < i) return true;
+            if((difference<0 && difference < i-s.getLastCarte().getValeur()) || (i-s.getLastCarte().getValeur())> 0 && i-s.getLastCarte().getValeur() < difference) {
+                difference = i - s.getLastCarte().getValeur();
+                retour = true;
+            }
+            if(s.estPleine() || difference < 0) retour = false;
         }
-        return false;
+        return retour;
     }
 
     public String toString() {

@@ -1,5 +1,7 @@
 package Jeu;
 
+import javafx.scene.chart.XYChart;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -49,18 +51,43 @@ public class Partie {
                 this.getJoueurParCarteChoisie(i).poser(plateau);
             }
             else{
-                joueurARamassé = true;
-                Joueur j = this.getJoueurParCarteChoisie(i);
-                System.out.println(this.toStringCartesChoisies(true));
-                System.out.println("Pour poser la carte "+i+", "+j.toString()+
-                        " doit choisir la série qu'il va ramasser.");
-                System.out.print(this.plateau.toString());
-                System.out.print("Saissisez votre choix : ");
-                int choix = sc.nextInt();
-                --choix;// modifier pour prendre en compte les erreurs
-                j.ajouterTetesDeBoeufs(plateau.getNbTeteDeBoeufsFromSérie(choix));
-                plateau.clearSérie(choix);
-                j.poser(plateau);
+                int difference = i - plateau.getSéries().get(0).getLastCarte().getValeur();
+                int sérieOuPlacer = 0;
+                boolean posable = false;
+                for (int compt = 0; compt < plateau.getSéries().size(); compt++) {
+                    if ((difference < 0 && difference < i - plateau.getSéries().get(compt).getLastCarte().getValeur())
+                            || (plateau.getSéries().get(compt).getLastCarte().getValeur() > 0 && plateau.getSéries().get(compt).getLastCarte().getValeur() < difference)) {
+
+                        difference = i - plateau.getSéries().get(compt).getLastCarte().getValeur();
+                        sérieOuPlacer = compt;
+                        posable = true;
+                    }
+                    if(difference < 0) posable = false;
+                    if(plateau.getSéries().get(compt).estPleine()) posable = true;
+                }
+                if (posable) {
+                    joueurARamassé = true;
+                    Joueur j = this.getJoueurParCarteChoisie(i);
+                    j.ajouterTetesDeBoeufs(plateau.getNbTeteDeBoeufsFromSérie(sérieOuPlacer));
+                    plateau.clearSérie(sérieOuPlacer);
+                    j.poser(plateau);
+                }
+                else {
+                    joueurARamassé = true;
+                    Joueur j = this.getJoueurParCarteChoisie(i);
+                    System.out.println(this.toStringCartesChoisies(true));
+                    System.out.println("Pour poser la carte " + i + ", " + j.toString() +
+                            " doit choisir la série qu'il va ramasser.");
+                    System.out.print(this.plateau.toString());
+                    System.out.print("Saissisez votre choix : ");
+                    int choix = sc.nextInt();
+                    while (choix > 4) choix = sc.nextInt();
+                    --choix;// modifier pour prendre en compte les erreurs
+
+                    j.ajouterTetesDeBoeufs(plateau.getNbTeteDeBoeufsFromSérie(choix));
+                    plateau.clearSérie(choix);
+                    j.poser(plateau);
+                }
             }
         }
         System.out.println(this.toStringCartesChoisies(false));
@@ -112,13 +139,14 @@ public class Partie {
             if (i== valeursCartesChoisies.size()-1)
                 tmp +=" et "+valeursCartesChoisies.get(i) +" (" +
                         getJoueurParCarteChoisie(valeursCartesChoisies.get(i)).toString() + ") " ;
-            else if (i== valeursCartesChoisies.size()-1)
+            else if (i== valeursCartesChoisies.size()-2)
             tmp += " "+ valeursCartesChoisies.get(i) +" (" +
                     getJoueurParCarteChoisie(valeursCartesChoisies.get(i)).toString() + ") " ;
             else
                 tmp += " "+valeursCartesChoisies.get(i) +" (" +
                         getJoueurParCarteChoisie(valeursCartesChoisies.get(i)).toString() + ")," ;
         }
+        //a quoi sert cette boucle ???
         for(int vCartes : valeursCartesChoisies){
 
         }

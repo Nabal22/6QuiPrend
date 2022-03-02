@@ -47,8 +47,8 @@ public class Joueur {
         pause();
         System.out.print(partie.getPlateau().toString());
         this.main.trierMain();
-        System.out.println("-Vos cartes :"+this.main.toStringMain());
-        System.out.print("Saissisez votre choix : ");
+        System.out.println("- Vos cartes :"+this.main.toStringMain());
+        System.out.print("Saisisez votre choix : ");
         boolean valeurVraiFaux = true;
         while(valeurVraiFaux) {
             int valeurCarteJouée = sc.nextInt();
@@ -69,7 +69,7 @@ public class Joueur {
 
     public String toStringRamassé(){
         if (NbTetesDeBoeufsRamasséesCeTour>0)
-            return this.nom+" a ramassée "+this.NbTetesDeBoeufsRamasséesCeTour+" têtes de boeufs\n";
+            return this.nom+" a ramassé "+this.NbTetesDeBoeufsRamasséesCeTour+" têtes de boeufs\n";
         else return "";
     }
 

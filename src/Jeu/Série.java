@@ -1,6 +1,7 @@
 package Jeu;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Série {
     private static final int MAXCONTENUSERIE = 5;
@@ -10,9 +11,11 @@ public class Série {
         this.contenu = new ArrayList<>();
     }
 
+
     public boolean estPleine (){
         return (contenu.size() == MAXCONTENUSERIE);
    }
+
    public boolean estVide(){
         if (contenu.size()==0) return true;
         else return false;
@@ -41,8 +44,11 @@ public class Série {
 
     public String toString() {
         String tmp = new String();
-        for (Carte c : contenu){
-            tmp += c.toString();
+        int i = 0;
+        while(i < contenu.size()){
+            tmp += contenu.get(i).toString();
+            if (++i != contenu.size())
+                tmp += ",";
         }
         return tmp;
     }
