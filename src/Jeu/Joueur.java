@@ -48,7 +48,7 @@ public class Joueur {
         System.out.print(partie.getPlateau().toString());
         this.main.trierMain();
         System.out.println("- Vos cartes :"+this.main.toStringMain());
-        System.out.print("Saisisez votre choix : ");
+        System.out.print("Saisissez votre choix : ");
         boolean valeurVraiFaux = true;
         while(valeurVraiFaux) {
             int valeurCarteJouée = sc.nextInt();

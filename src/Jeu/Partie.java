@@ -79,7 +79,7 @@ public class Partie {
                     System.out.println("Pour poser la carte " + i + ", " + j.toString() +
                             " doit choisir la série qu'il va ramasser.");
                     System.out.print(this.plateau.toString());
-                    System.out.print("Saissisez votre choix : ");
+                    System.out.print("Saisissez votre choix : ");
                     int choix = sc.nextInt();
                     while (choix > 4) choix = sc.nextInt();
                     --choix;// modifier pour prendre en compte les erreurs
@@ -141,7 +141,7 @@ public class Partie {
                         getJoueurParCarteChoisie(valeursCartesChoisies.get(i)).toString() + ") " ;
             else if (i== valeursCartesChoisies.size()-2)
             tmp += " "+ valeursCartesChoisies.get(i) +" (" +
-                    getJoueurParCarteChoisie(valeursCartesChoisies.get(i)).toString() + ") " ;
+                    getJoueurParCarteChoisie(valeursCartesChoisies.get(i)).toString() + ")" ;
             else
                 tmp += " "+valeursCartesChoisies.get(i) +" (" +
                         getJoueurParCarteChoisie(valeursCartesChoisies.get(i)).toString() + ")," ;
