@@ -7,6 +7,10 @@ public class Carte {
     private int valeur;
     private int nbBoeuf=0;
 
+    /**
+     *
+     * @param valeur
+     */
     public Carte(int valeur) {
         assert (valeur >= MIN  && valeur <= MAXVALEUR );
         this.valeur=valeur;
@@ -27,16 +31,28 @@ public class Carte {
         if (valeurString.length()==2 && (valeurString.charAt(0)==valeurString.charAt(1))) this.nbBoeuf+=5;
     }
 
+    /**
+     *
+     * @return
+     */
     public String toString()  {
         if (nbBoeuf <= 1) return " "+valeur;
         else
         return " "+valeur+" ("+nbBoeuf+")";
     }
 
+    /**
+     *
+     * @return
+     */
     public int getValeur() {
         return valeur;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNbBoeuf() {
         return nbBoeuf;
     }

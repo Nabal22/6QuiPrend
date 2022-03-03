@@ -7,11 +7,19 @@ public class Plateau {
 
     private ArrayList<Série> séries;
 
+    /**
+     *
+     */
     public Plateau(){
         this.séries = new ArrayList<>();
         for (int i = 0 ; i < NBSERIE ; i++) séries.add(new Série());
     }
 
+    /**
+     *
+     * @param idSérie
+     * @return
+     */
     public int getNbTeteDeBoeufsFromSérie(int idSérie){
         for(int i = 0 ; i < séries.size() ; i ++ ){
             if (i == idSérie) return séries.get(i).getNbTeteDeBoeufs();
@@ -19,10 +27,18 @@ public class Plateau {
         return 0;
     }
 
+    /**
+     *
+     * @param idSérie
+     */
     public void clearSérie(int idSérie){
         séries.get(idSérie).clear();
     }
 
+    /**
+     *
+     * @param carte
+     */
     public void placer(Carte carte){
         int tmp=104,idSérie = -1,i;
         for (i = 0; i < NBSERIE ; i++){
@@ -43,10 +59,19 @@ public class Plateau {
         séries.get(idSérie).ajouter(carte);
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Série> getSéries() {
         return séries;
     }
 
+    /**
+     *
+     * @param i
+     * @return
+     */
     public boolean estPosable(int i){
         int difference = i - séries.get(0).getLastCarte().getValeur();
         boolean retour = true;
@@ -60,6 +85,10 @@ public class Plateau {
         return retour;
     }
 
+    /**
+     *
+     * @return
+     */
     public String toString() {
         String tmp = new String();
         for (int i = 0 ; i <NBSERIE ; i++)

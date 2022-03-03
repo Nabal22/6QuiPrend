@@ -10,6 +10,10 @@ import java.util.ArrayList;
 
 public class Appli {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Partie partie = new Partie(enregistrementJoueur());
         Paquet paquet = new Paquet();
@@ -30,6 +34,11 @@ public class Appli {
         System.out.println(partie.toStringFinal());
         sc.close();
     }
+
+    /**
+     *
+     * @return
+     */
     public static ArrayList<Joueur> enregistrementJoueur(){
         try {
             Scanner fichier = new Scanner(new FileInputStream("config.txt"));

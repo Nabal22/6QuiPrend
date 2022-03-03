@@ -8,14 +8,25 @@ import java.util.Scanner;
 
 // Mettre des privates dans partie pour les méthodes qui sont utilisées que dans JouerTour
 
+/** Type de donnée représentant la partie */
 public class Partie {
+    /** Nombre de joueur minimum pour une partie */
     private static final int NBJOUEURMIN = 2;
+    /** Nombre de joueur maximum pour une partie */
     private static final int NBJOUEURMAX = 10;
 
+    /** Plateau de jeu pour la partie */
     private Plateau plateau;
+    /** Liste de joueurs de la partie */
     private ArrayList<Joueur> joueurs;
+    /** Liste de la valeur des cartes choisies lors de la partie */
     private ArrayList<Integer> valeursCartesChoisies;
 
+
+    /**
+     * Constructeur de la PArtie
+     * @param joueurs la liste de joueurs
+     */
     public Partie(ArrayList<Joueur> joueurs){
         assert (joueurs.size()<=10 && joueurs.size() >=2);
         this.plateau = new Plateau();
@@ -32,10 +43,17 @@ public class Partie {
         }
     }
 
+    /**
+     * Vide les têtes de boeufs de tous les joueurs
+     */
     private void clearTetesDeBoeufsJoueurs(){
         for (Joueur j : joueurs) j.clearTetesDeBoeufs();
     }
 
+    /**
+     * Indique si la partie est finie
+     * @return vrai si la partie est finie
+     */
     public boolean estFinie(){
         for ( Joueur j : joueurs){
             if (j.nbCartesDansMain()!=0) return false;
@@ -43,6 +61,11 @@ public class Partie {
         return true;
     }
 
+
+    /**
+     * Réalise un tour dans la partie
+     * @param sc l'entrée du joueur
+     */
     public void jouerTour(Scanner sc){
         boolean joueurARamassé = false;
         this.clearTetesDeBoeufsJoueurs();
@@ -95,6 +118,10 @@ public class Partie {
         System.out.println(this.toStringTetesDeBoeufs(joueurARamassé));
     }
 
+    /**
+     * Indique le score final de la partie
+     * @return tmp la chaine de caractère du score de la partie
+     */
     public String toStringFinal(){
         String tmp ="** Score final\n";
         for (Joueur j : joueurs){
@@ -103,14 +130,27 @@ public class Partie {
         return tmp;
     }
 
+    /**
+     * Indique le plateau de jeu de la partie
+     * @return le plateau de jeu
+     */
     public Plateau getPlateau(){
         return plateau;
     }
 
+    /**
+     * Indique la liste de joueurs
+     * @return les joueurs de la partie
+     */
     public ArrayList<Joueur> getJoueurs() {
         return joueurs;
     }
 
+    /**
+     * Indique le joueur à partir de la valeur de la carte qu'il a choisi
+     * @param vCarte la valeur de la carte choisi
+     * @return le joueur associé à la valeur de la carte
+     */
     public Joueur getJoueurParCarteChoisie(int vCarte){
         for (Joueur j : joueurs){
             if (vCarte==j.getValeurCarteChoisie()){
@@ -120,18 +160,33 @@ public class Partie {
         return null;
     }
 
+    /**
+     * Ajoute la valeur de la carte choisie à la liste des cartes choisies
+     * @param valeur
+     */
     public void ajouterCarteChoisie(int valeur){
         valeursCartesChoisies.add(valeur);
     }
 
+    /**
+     * Supprime toutes les cartes choisies
+     */
     public void clearCartesChoisies(){
         valeursCartesChoisies.clear();
     }
 
+    /**
+     * Trie par ordre croissant les valeurs des cartes choisies
+     */
     public void trierCartesChoisies(){
         Collections.sort(valeursCartesChoisies);
     }
 
+    /**
+     * Indique les cartes choisies qui vont ou ont été posées
+     * @param vontEtrePosées
+     * @return
+     */
     public String toStringCartesChoisies(boolean vontEtrePosées){
         String tmp = new String();
         tmp = "Les cartes";
@@ -154,6 +209,11 @@ public class Partie {
         else return tmp+"ont été posées.";
     }
 
+    /**
+     * Indique les têtes de boeufs ramassées
+     * @param joueurARamassé
+     * @return
+     */
     public String toStringTetesDeBoeufs(boolean joueurARamassé){
         if (joueurARamassé) {
             String tmp = "";

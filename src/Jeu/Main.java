@@ -15,6 +15,11 @@ public class Main {
         this.contenu.set(i, carte);
     }
 
+    /**
+     *
+     * @param valeurCarteChoisie
+     * @return
+     */
     public boolean contient(int valeurCarteChoisie){
         assert (this.contenu.size()!=0);
         for(Carte carte : this.contenu){
@@ -25,12 +30,21 @@ public class Main {
         return false;
     }
 
+    /**
+     *
+     * @param cartes
+     */
     public void ajouterCarteDe(ArrayList<Carte> cartes){
         assert (getNbCartesMain()<10);
         contenu.add(cartes.get(cartes.size()-1));
         cartes.remove(cartes.size()-1);
     }
 
+    /**
+     *
+     * @param v
+     * @return
+     */
     public Carte getCarteMainByValeur(int v) {
         Carte c = null;
         for (int i = 0 ; i < getNbCartesMain() ; i++){
@@ -42,10 +56,17 @@ public class Main {
         return c;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNbCartesMain(){
         return contenu.size();
     }
 
+    /**
+     *
+     */
     public void trierMain(){
         for(int i = 1; i<getNbCartesMain(); i++){
             Carte tmp = contenu.get(i);
@@ -59,6 +80,10 @@ public class Main {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String toStringMain(){
         String tmp = new String();
         for (int i = 0 ; i < getNbCartesMain() ; i++){
