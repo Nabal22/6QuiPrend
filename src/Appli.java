@@ -8,12 +8,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/** Classe de la méthode main */
 public class Appli {
 
-    /**
-     *
-     * @param args
-     */
     public static void main(String[] args) {
         Partie partie = new Partie(enregistrementJoueur());
         Paquet paquet = new Paquet();
@@ -36,8 +33,8 @@ public class Appli {
     }
 
     /**
-     *
-     * @return
+     * Indique la liste de joueur enregistré
+     * @return la liste des joueurs
      */
     public static ArrayList<Joueur> enregistrementJoueur(){
         try {

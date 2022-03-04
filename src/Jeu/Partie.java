@@ -1,7 +1,5 @@
 package Jeu;
 
-import javafx.scene.chart.XYChart;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -10,9 +8,9 @@ import java.util.Scanner;
 
 /** Type de donnée représentant la partie */
 public class Partie {
-    /** Nombre de joueur minimum pour une partie */
+    /** Nombre de joueurs minimum pour une partie */
     private static final int NBJOUEURMIN = 2;
-    /** Nombre de joueur maximum pour une partie */
+    /** Nombre de joueurs maximum pour une partie */
     private static final int NBJOUEURMAX = 10;
 
     /** Plateau de jeu pour la partie */
@@ -24,7 +22,7 @@ public class Partie {
 
 
     /**
-     * Constructeur de la PArtie
+     * Constructeur de la Partie
      * @param joueurs la liste de joueurs
      */
     public Partie(ArrayList<Joueur> joueurs){
@@ -148,7 +146,7 @@ public class Partie {
 
     /**
      * Indique le joueur à partir de la valeur de la carte qu'il a choisi
-     * @param vCarte la valeur de la carte choisi
+     * @param vCarte la valeur de la carte choisie
      * @return le joueur associé à la valeur de la carte
      */
     public Joueur getJoueurParCarteChoisie(int vCarte){

@@ -1,15 +1,20 @@
 package Jeu;
 
+/** Type de données représentant une carte */
 public class Carte {
+    /** valeur minimale d'une carte */
     private final int MIN = 1;
+    /** valeur maximale d'une carte */
     private final int MAXVALEUR = 104;
 
+    /** valeur d'une carte */
     private int valeur;
+    /** nombre de têtes de boeufs d'une carte */
     private int nbBoeuf=0;
 
     /**
-     *
-     * @param valeur
+     * Constructeur d'une carte
+     * @param valeur valeur de la carte
      */
     public Carte(int valeur) {
         assert (valeur >= MIN  && valeur <= MAXVALEUR );
@@ -32,8 +37,8 @@ public class Carte {
     }
 
     /**
-     *
-     * @return
+     * Indique la valeur et le nombre de têtes de boeufs d'une carte
+     * @return la valeur et le nombre de têtes de boeufs d'une carte
      */
     public String toString()  {
         if (nbBoeuf <= 1) return " "+valeur;
@@ -42,16 +47,16 @@ public class Carte {
     }
 
     /**
-     *
-     * @return
+     * Indique la valeur d'une carte
+     * @return la valeur de la carte
      */
     public int getValeur() {
         return valeur;
     }
 
     /**
-     *
-     * @return
+     * Indique le nombre de têtes de boeufs d'une carte
+     * @return le nombre de têtes de boeufs d'une carte
      */
     public int getNbBoeuf() {
         return nbBoeuf;

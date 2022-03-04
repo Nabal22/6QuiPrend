@@ -1,17 +1,18 @@
 package Jeu;
 
-import Jeu.Carte;
-import Jeu.Joueur;
-
-import java.util.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
+/** Type de donnée représentant un paquet */
 public class Paquet {
+    /** nombres de cartes max dans un paquet */
     private static final int NBCARTESMAX = 104;
+
+    /** contenu du paquet (liste de cartes) */
     private ArrayList<Carte> contenu;
 
     /**
-     *
+     * Constructeur d'un paquet
      */
     public Paquet (){
         this.contenu = new ArrayList<Carte>();
@@ -22,7 +23,7 @@ public class Paquet {
     }
 
     /**
-     *
+     * Mélange le paquet
      */
     public void melanger(){
         assert (contenu.size()>1);
@@ -30,8 +31,8 @@ public class Paquet {
     }
 
     /**
-     *
-     * @param joueurs
+     * Distribue pour chaque joueur 10 cartes du paquet vers leur main
+     * @param joueurs la liste de joueurs
      */
     public void distribuer(ArrayList<Joueur> joueurs){
         assert (joueurs.size()!=0);
@@ -41,8 +42,8 @@ public class Paquet {
     }
 
     /**
-     * 
-     * @param séries
+     * Dispose les séries en leur attribuant leurs premières cartes
+     * @param séries la liste de séries
      */
     public void disposerSérie(ArrayList<Série> séries){
         assert (séries.size() == 4);

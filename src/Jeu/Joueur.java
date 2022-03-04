@@ -6,16 +6,22 @@ import java.util.Scanner;
 import static util.Console.clearScreen;
 import static util.Console.pause;
 
+/** Type de données représentant les joueurs */
 public class Joueur {
+    /** nom du joueur */
     private String nom;
+    /** main du joueur */
     private Main main;
+    /** carte choisi par le joueur */
     private Carte carteChoisie;
+    /** nombre de tête de boeufs total du joueur */
     private int nbTetesDeBoeufsRamassées;
+    /** nombre de tête de boeufs ramasé par le joueur en un tour */
     private int NbTetesDeBoeufsRamasséesCeTour;
 
     /**
-     *
-     * @param nom
+     * Constructeur du joueur
+     * @param nom nom du joueur
      */
     public Joueur(String nom){
         this.nom = nom;
@@ -25,13 +31,13 @@ public class Joueur {
     }
 
     /**
-     *
+     * Clear le nombre de têtes de boeufs d'un joueur lors d'un tour
      */
     public void clearTetesDeBoeufs(){NbTetesDeBoeufsRamasséesCeTour = 0;}//ne pas oublier de clear a chaque tour
 
     /**
-     *
-     * @param i
+     * Ajoute au total de nombre de têtes de boeufs le nombre indiqué
+     * @param i le nombre de têtes de boeufs à ajouter
      */
     public void ajouterTetesDeBoeufs(int i){
         NbTetesDeBoeufsRamasséesCeTour = i;
@@ -39,41 +45,41 @@ public class Joueur {
     }
 
     /**
-     *
-     * @return
+     * Indique la valeur de la carte choisie par le joueur lors du tour
+     * @return la valeur de la carte choisie
      */
     public int getValeurCarteChoisie() {
         return carteChoisie.getValeur();
     }
 
     /**
-     *
-     * @param plateau
+     * Pose la carte choisie sur le plateau de jeu
+     * @param plateau le plateau de jeu
      */
     public void poser(Plateau plateau){
         plateau.placer(carteChoisie);
     }
 
     /**
-     *
-     * @param cartes
+     * Pioche une carte du paquet vers la main
+     * @param cartes le contenu du paquet de cartes
      */
     public void piocher(ArrayList<Carte> cartes){
         main.ajouterCarteDe(cartes);
     }
 
     /**
-     *
-     * @return
+     * Indique le nombre de cartes dans la main d'un joueur
+     * @return le nombre de cartes dans la main du joueur
      */
     public int nbCartesDansMain(){
         return main.getNbCartesMain();
     }
 
     /**
-     *
-     * @param partie
-     * @param sc
+     * Joue le tour du joueur en selectionnant la carte voulant être jouée
+     * @param partie la partie actuel
+     * @param sc l'entrée de la valeur de la carte du joueur
      */
     public void jouerTour(Partie partie, Scanner sc){
         System.out.println("A "+this.toString()+" de jouer.");
@@ -97,16 +103,16 @@ public class Joueur {
     }
 
     /**
-     *
-     * @return
+     * Indique le nom du joueur
+     * @return la chaine de caractère du nom du joueur
      */
     public String toString() {
         return nom;
     }
 
     /**
-     *
-     * @return
+     * Indique le nom du joueur et le nombre de têtes de boeufs qu'il a ramassé
+     * @return le nom du joueur et le nombre de têtes de boeufs qu'il a ramassé
      */
     public String toStringRamassé(){
         if (NbTetesDeBoeufsRamasséesCeTour>0)
@@ -115,8 +121,8 @@ public class Joueur {
     }
 
     /**
-     *
-     * @return
+     * Indique le nom du joueur et le nombre de têtes de boeufs qu'il a ramassé au total
+     *      * @return le nom du joueur et le nombre de têtes de boeufs qu'il a ramassé au total
      */
     public String toStringFinal(){
         return this.nom +" a ramassé "+ this.nbTetesDeBoeufsRamassées+" têtes de boeufs\n"; }
