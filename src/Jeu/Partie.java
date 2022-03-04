@@ -113,7 +113,7 @@ public class Partie {
         }
         System.out.println(this.toStringCartesChoisies(false));
         System.out.print(this.plateau.toString());
-        System.out.println(this.toStringTetesDeBoeufs(joueurARamassé));
+        System.out.print(this.toStringTetesDeBoeufs(joueurARamassé));
     }
 
     /**
@@ -220,6 +220,6 @@ public class Partie {
             }
             return tmp;
         }
-        else return "Aucun joueur ne ramasse de tête de boeufs.";
+        else return "Aucun joueur ne ramasse de tête de boeufs.\n";
     }
 }
