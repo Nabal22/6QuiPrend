@@ -30,15 +30,6 @@ public class Partie {
         this.plateau = new Plateau();
         this.joueurs = joueurs;
         this.valeursCartesChoisies = new ArrayList<>();
-        System.out.print("Les "+joueurs.size()+" joueurs sont");
-        for (int i = 0 ; i < joueurs.size(); i++)
-        {
-            if (i == joueurs.size()-1)
-                System.out.println(" "+ joueurs.get(i).toString()+". Merci de jouer à 6 qui prend !");
-            else if (i == joueurs.size()-2) System.out.print(" "+ joueurs.get(i).toString()+" et " );
-            else
-                System.out.print(" "+ joueurs.get(i).toString()+"," );
-        }
     }
 
     /**
@@ -58,7 +49,6 @@ public class Partie {
         }
         return true;
     }
-
 
     /**
      * Réalise un tour dans la partie
@@ -100,9 +90,13 @@ public class Partie {
                     System.out.println("Pour poser la carte " + i + ", " + j.toString() +
                             " doit choisir la série qu'il va ramasser.");
                     System.out.print(this.plateau.toString());
-                    System.out.print("Saisissez votre choix : ");
-                    int choix = sc.nextInt();
-                    while (choix > 4) choix = sc.nextInt();
+                    int choix = 5;
+                    while (choix > 4 || choix < 1){
+                        System.out.print("Saisissez votre choix : ");
+                        if (sc.hasNextInt()){
+                            choix = sc.nextInt();
+                        }
+                    }
                     --choix;// modifier pour prendre en compte les erreurs
 
                     j.ajouterTetesDeBoeufs(plateau.getNbTeteDeBoeufsFromSérie(choix));
@@ -122,8 +116,32 @@ public class Partie {
      */
     public String toStringFinal(){
         String tmp ="** Score final\n";
+        Joueur jTmp;// Tri à bulles
+        for (int i = 0 ; i < joueurs.size() ; i++){
+            for (int j = 0 ; j < joueurs.size() ; j++){
+                if (joueurs.get(i).getNbTetesDeBoeufsRamassées()<joueurs.get(j).getNbTetesDeBoeufsRamassées()){
+                    jTmp = joueurs.get(i);
+                    joueurs.set(i,joueurs.get(j));
+                    joueurs.set(j,jTmp);
+                }
+            }
+        }
         for (Joueur j : joueurs){
             tmp += j.toStringFinal();
+        }
+        return tmp;
+    }
+
+    public String toStringInit(){
+        String tmp = new String();
+        tmp+="Les "+joueurs.size()+" joueurs sont";
+        for (int i = 0 ; i < joueurs.size(); i++)
+        {
+            if (i == joueurs.size()-1)
+                tmp+=" "+ joueurs.get(i).toString()+". Merci de jouer à 6 qui prend !";
+            else if (i == joueurs.size()-2) tmp+=" "+ joueurs.get(i).toString()+" et ";
+            else
+                tmp+=" "+ joueurs.get(i).toString()+",";
         }
         return tmp;
     }

@@ -26,7 +26,7 @@ public class Joueur {
     public Joueur(String nom){
         this.nom = nom;
         this.main = new Main();
-        this.nbTetesDeBoeufsRamassées = 0;
+        this.NbTetesDeBoeufsRamasséesCeTour = 0;
         this.nbTetesDeBoeufsRamassées = 0;
     }
 
@@ -44,6 +44,13 @@ public class Joueur {
         nbTetesDeBoeufsRamassées+=i;
     }
 
+    /**
+     * Retourne le nombre de têtes de boeufs ramassés au total par un joueur
+     * @return
+     */
+    public int getNbTetesDeBoeufsRamassées(){
+        return NbTetesDeBoeufsRamasséesCeTour;
+    }
     /**
      * Indique la valeur de la carte choisie par le joueur lors du tour
      * @return la valeur de la carte choisie

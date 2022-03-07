@@ -13,6 +13,7 @@ public class Appli {
 
     public static void main(String[] args) {
         Partie partie = new Partie(enregistrementJoueur());
+        System.out.println(partie.toStringInit());
         Paquet paquet = new Paquet();
         paquet.melanger();
         paquet.distribuer(partie.getJoueurs());
