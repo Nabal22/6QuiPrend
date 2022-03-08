@@ -8,9 +8,8 @@ import static org.junit.Assert.*;
 public class PaquetTest {
 
     @Test
-    public void testMelanger() {
-        Paquet p = new Paquet();
-        p.melanger();
+    public void testPaquet() {
+
     }
 
     @Test

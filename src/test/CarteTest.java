@@ -15,4 +15,13 @@ public class CarteTest {
         Carte c = new Carte(2);
         assertFalse(a.toString().equals(c.toString()));
     }
+
+    @Test
+    public void testGet() {
+        Carte a = new Carte(5);
+        assertFalse(a.getValeur() == 6);
+        assertTrue(a.getValeur() == 5);
+        assertTrue(a.getNbBoeuf() == 2);
+        assertFalse(a.getNbBoeuf() == 15);
+    }
 }
