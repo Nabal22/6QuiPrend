@@ -1,13 +1,21 @@
 package test;
 
+import Jeu.Carte;
+import Jeu.Main;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
 public class MainTest {
 
     @Test
-    public void contient() {
+    public void testMain() {
+        Main m = new Main();
+        ArrayList<Carte> temp = new ArrayList<>();
+        for (int i = 0; i <10; i++) {
+        }
     }
 
     @Test

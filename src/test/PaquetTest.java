@@ -1,5 +1,6 @@
 package test;
 
+import Jeu.Paquet;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -7,7 +8,9 @@ import static org.junit.Assert.*;
 public class PaquetTest {
 
     @Test
-    public void melanger() {
+    public void testMelanger() {
+        Paquet p = new Paquet();
+        p.melanger();
     }
 
     @Test

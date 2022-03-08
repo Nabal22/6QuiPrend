@@ -91,8 +91,10 @@ public class Partie {
                             " doit choisir la série qu'il va ramasser.");
                     System.out.print(this.plateau.toString());
                     int choix = 5;
+                    System.out.print("Saisissez votre choix : ");
+                    choix = sc.nextInt();
                     while (choix > 4 || choix < 1){
-                        System.out.print("Saisissez votre choix : ");
+                        System.out.print("Ce n'est pas une série valide, saisissez votre choix : ");
                         if (sc.hasNextInt()){
                             choix = sc.nextInt();
                         }
@@ -116,13 +118,32 @@ public class Partie {
      */
     public String toStringFinal(){
         String tmp ="** Score final\n";
-        Joueur jTmp;// Tri à bulles
+        /**Joueur jTmp;// Tri à bulles
+        System.out.println(joueurs.toString());
         for (int i = 0 ; i < joueurs.size() ; i++){
             for (int j = 0 ; j < joueurs.size() ; j++){
-                if (joueurs.get(i).getNbTetesDeBoeufsRamassées()<joueurs.get(j).getNbTetesDeBoeufsRamassées()){
+                if (joueurs.get(i).getNbTetesDeBoeufsRamassées()>joueurs.get(j).getNbTetesDeBoeufsRamassées()){
                     jTmp = joueurs.get(i);
                     joueurs.set(i,joueurs.get(j));
                     joueurs.set(j,jTmp);
+                    System.out.println(joueurs.toString());
+                }
+            }
+        }*/
+        boolean permut = true;
+        int passage = 0;
+        Joueur jTmp;
+        System.out.println(joueurs.toString());
+        while(permut == true){
+            permut = false;
+            passage++;
+            for(int i = 0; i<joueurs.size()-passage;i++){
+                if(joueurs.get(i).getNbTetesDeBoeufsRamassées() > joueurs.get(i+1).getNbTetesDeBoeufsRamassées()){
+                    permut=true;
+                    jTmp = joueurs.get(i);
+                    joueurs.set(i,joueurs.get(i+1));
+                    joueurs.set(i+1,jTmp);
+                    System.out.println(joueurs.toString());
                 }
             }
         }
