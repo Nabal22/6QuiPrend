@@ -14,8 +14,8 @@ public class JoueurTest {
     public void testAjouterTetesDeBoeufs() {
         Joueur j = new Joueur("simon");
         j.ajouterTetesDeBoeufs(14);
-        assertTrue(j.getNbTetesDeBoeufsRamasséesCeTour() == 14);
-        assertFalse(j.getNbTetesDeBoeufsRamasséesCeTour() == 18);
+        assertTrue(j.getNbTetesDeBoeufsRamassées() == 14);
+        assertFalse(j.getNbTetesDeBoeufsRamassées() == 18);
         System.out.println(j.toStringFinal());
         assertTrue(j.toStringFinal().equals("simon a ramassé 14 têtes de boeufs\n"));
     }
@@ -24,10 +24,6 @@ public class JoueurTest {
     public void clearTetesDeBoeufs() {
         Joueur j = new Joueur("alban");
         j.ajouterTetesDeBoeufs(15);
-        assertTrue(j.getNbTetesDeBoeufsRamasséesCeTour() == 15);
-        j.clearTetesDeBoeufs();
-        assertFalse(j.getNbTetesDeBoeufsRamasséesCeTour() == 15);
-        assertTrue(j.getNbTetesDeBoeufsRamasséesCeTour() == 0);
 
     }
 

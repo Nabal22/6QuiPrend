@@ -45,14 +45,6 @@ public class Joueur {
     }
 
     /**
-     * Retourne le nombre de têtes de boeufs ramassés pendant ce tour par un joueur
-     * @return NbTetesDeBoeufsRamasséesCeTour
-     */
-    public int getNbTetesDeBoeufsRamasséesCeTour(){
-        return NbTetesDeBoeufsRamasséesCeTour;
-    }
-
-    /**
      * Retourne le nombre de têtes de boeufs ramassés au total par un joueur
      * @return nbTetesDeBoeufsRamassées
      */
