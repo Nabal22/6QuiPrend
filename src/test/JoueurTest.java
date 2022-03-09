@@ -12,19 +12,12 @@ public class JoueurTest {
 
     @Test
     public void testAjouterTetesDeBoeufs() {
-        Joueur j = new Joueur("simon");
-        j.ajouterTetesDeBoeufs(14);
-        assertTrue(j.getNbTetesDeBoeufsRamassées() == 14);
-        assertFalse(j.getNbTetesDeBoeufsRamassées() == 18);
-        System.out.println(j.toStringFinal());
-        assertTrue(j.toStringFinal().equals("simon a ramassé 14 têtes de boeufs\n"));
-    }
-
-    @Test
-    public void clearTetesDeBoeufs() {
-        Joueur j = new Joueur("alban");
-        j.ajouterTetesDeBoeufs(15);
-
+        Joueur joueur1 = new Joueur("joueur1");
+        joueur1.ajouterTetesDeBoeufs(14);
+        assertTrue(joueur1.getNbTetesDeBoeufsRamassées() == 14);
+        assertFalse(joueur1.getNbTetesDeBoeufsRamassées() == 18);
+        System.out.println(joueur1.toStringFinal());
+        assertTrue(joueur1.toStringFinal().equals("joueur1 a ramassé 14 têtes de boeufs\n"));
     }
 
 
@@ -43,9 +36,19 @@ public class JoueurTest {
 
     @Test
     public void testToString() {
+        Joueur joueur1 = new Joueur("joueur1");
+        assertTrue(joueur1.toString().equals("joueur1"));
+        assertFalse(joueur1.toString().equals("joueur2"));
+        Joueur joueur2 = new Joueur("joueur2");
+        assertTrue(joueur2.toString().equals("joueur2"));
+        assertFalse(joueur2.toString().equals("joueur1"));
     }
 
     @Test
-    public void toStringRamassé() {
+    public void toStringFinal() {
+        Joueur joueur1 = new Joueur("joueur1");
+        joueur1.ajouterTetesDeBoeufs(10);
+        assertFalse(joueur1.toStringFinal().equals("joueur1"));
+        assertTrue(joueur1.toStringFinal().equals("joueur1 a ramassé 10 têtes de boeufs\n"));
     }
 }

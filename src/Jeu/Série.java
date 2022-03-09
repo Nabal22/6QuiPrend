@@ -14,7 +14,7 @@ public class Série {
      * Constructeur de la série
      */
     public Série(){
-        this.contenu = new ArrayList<>();
+        this.contenu = new ArrayList<Carte>();
     }
 
     /**
@@ -46,7 +46,7 @@ public class Série {
      * @param c la carte à ajouter
      */
     public void ajouter(Carte c){
-        assert (this.estPleine());
+        assert (!this.estPleine());
         contenu.add(c);
    }
 

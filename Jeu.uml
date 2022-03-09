@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Jeu</OriginalElement>
+  <nodes>
+    <node x="41.407024793388416" y="46.0">Jeu.Série</node>
+    <node x="92.1683884297521" y="400.0">Jeu.Partie</node>
+    <node x="293.875" y="0.0">Jeu.Carte</node>
+    <node x="156.05750688705228" y="481.0">Appli</node>
+    <node x="265.43457300275486" y="277.0">Jeu.Joueur</node>
+    <node x="336.1170798898072" y="400.0">Jeu.Paquet</node>
+    <node x="10.5" y="174.0">Jeu.Plateau</node>
+    <node x="285.3670798898072" y="91.0">Jeu.Main</node>
+    <node x="145.49207988980717" y="277.0">util.Demo</node>
+    <node x="151.99207988980717" y="174.0">util.Console</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Appli" target="Jeu.Paquet" relationship="CREATE">
+      <point x="0.0" y="-14.5" />
+      <point x="199.05750688705228" y="461.5" />
+      <point x="399.117" y="461.5" />
+      <point x="14.999920110192818" y="14.5" />
+    </edge>
+    <edge source="Jeu.Série" target="Jeu.Carte" relationship="DEPENDENCY">
+      <point x="-2.479338841965273E-5" y="14.5" />
+      <point x="82.907" y="147.0" />
+      <point x="271.0" y="147.0" />
+      <point x="271.0" y="14.5" />
+      <point x="-42.5" y="0.0" />
+    </edge>
+    <edge source="Appli" target="Jeu.Plateau" relationship="DEPENDENCY">
+      <point x="-42.99950688705229" y="0.0" />
+      <point x="74.668" y="495.5" />
+      <point x="74.668" y="222.0" />
+      <point x="59.0" y="222.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="Jeu.Main" target="Jeu.Carte" relationship="DEPENDENCY">
+      <point x="-41.50007988980718" y="0.0" />
+      <point x="271.0" y="105.5" />
+      <point x="271.0" y="14.5" />
+      <point x="-42.5" y="0.0" />
+    </edge>
+    <edge source="Jeu.Main" target="Jeu.Carte" relationship="TO_MANY">
+      <point x="41.49992011019282" y="0.0" />
+      <point x="385.867" y="105.5" />
+      <point x="385.867" y="60.0" />
+      <point x="336.375" y="60.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="Appli" target="Jeu.Partie" relationship="CREATE">
+      <point x="-35.5" y="-14.5" />
+      <point x="29.389118457300185" y="14.5" />
+    </edge>
+    <edge source="Jeu.Joueur" target="Jeu.Carte" relationship="TO_ONE">
+      <point x="46.50042699724514" y="0.0" />
+      <point x="402.867" y="291.5" />
+      <point x="402.867" y="48.0" />
+      <point x="336.375" y="48.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="Jeu.Joueur" target="Jeu.Plateau" relationship="DEPENDENCY">
+      <point x="15.000426997245143" y="-14.5" />
+      <point x="326.935" y="222.0" />
+      <point x="59.0" y="222.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="Jeu.Partie" target="Jeu.Plateau" relationship="TO_ONE">
+      <point x="-34.1683884297521" y="-14.5" />
+      <point x="41.0" y="14.5" />
+    </edge>
+    <edge source="Jeu.Plateau" target="Jeu.Série" relationship="TO_MANY">
+      <point x="-48.5" y="0.0" />
+      <point x="-22.0" y="188.5" />
+      <point x="-22.0" y="-17.5" />
+      <point x="57.0" y="-17.5" />
+      <point x="-25.907024793388416" y="-15.0" />
+    </edge>
+    <edge source="Jeu.Plateau" target="Jeu.Carte" relationship="DEPENDENCY">
+      <point x="0.0" y="-14.5" />
+      <point x="59.0" y="124.5" />
+      <point x="271.0" y="124.5" />
+      <point x="271.0" y="14.5" />
+      <point x="-42.5" y="0.0" />
+    </edge>
+    <edge source="Jeu.Joueur" target="Jeu.Main" relationship="CREATE">
+      <point x="-40.93457300275486" y="-14.5" />
+      <point x="271.0" y="181.5" />
+      <point x="326.935" y="181.5" />
+      <point x="0.06792011019280153" y="14.5" />
+    </edge>
+    <edge source="Appli" target="Jeu.Joueur" relationship="CREATE">
+      <point x="43.0" y="0.0" />
+      <point x="449.6170798898072" y="495.5" />
+      <point x="449.6170798898072" y="348.5" />
+      <point x="343.6170798898072" y="348.5" />
+      <point x="31.68250688705234" y="14.5" />
+    </edge>
+    <edge source="Jeu.Partie" target="Jeu.Joueur" relationship="TO_MANY">
+      <point x="42.0" y="0.0" />
+      <point x="296.935" y="414.5" />
+      <point x="-14.999573002754857" y="14.5" />
+    </edge>
+    <edge source="Jeu.Joueur" target="Jeu.Carte" relationship="DEPENDENCY">
+      <point x="4.269972451425019E-4" y="-14.5" />
+      <point x="311.935" y="167.0" />
+      <point x="198.0" y="167.0" />
+      <point x="198.0" y="14.5" />
+      <point x="-42.5" y="0.0" />
+    </edge>
+    <edge source="Jeu.Paquet" target="Jeu.Carte" relationship="TO_MANY">
+      <point x="1.749920110192818" y="-14.5" />
+      <point x="385.867" y="161.0" />
+      <point x="418.867" y="161.0" />
+      <point x="418.867" y="60.0" />
+      <point x="336.375" y="60.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="Jeu.Joueur" target="Jeu.Main" relationship="TO_ONE">
+      <point x="30.000426997245143" y="-14.5" />
+      <point x="15.067920110192802" y="14.5" />
+    </edge>
+    <edge source="Jeu.Partie" target="Jeu.Série" relationship="DEPENDENCY">
+      <point x="-42.00038842975209" y="0.0" />
+      <point x="-37.0" y="414.5" />
+      <point x="-37.0" y="54.5" />
+      <point x="-40.907024793388416" y="-6.0" />
+    </edge>
+    <edge source="Jeu.Paquet" target="Jeu.Joueur" relationship="DEPENDENCY">
+      <point x="-13.250079889807182" y="-14.5" />
+      <point x="370.867" y="375.0" />
+      <point x="336.93457300275486" y="375.0" />
+      <point x="336.93457300275486" y="353.0" />
+      <point x="327.935" y="353.0" />
+      <point x="327.935" y="333.5" />
+      <point x="311.935" y="333.5" />
+      <point x="4.269972451425019E-4" y="14.5" />
+    </edge>
+    <edge source="Jeu.Partie" target="Jeu.Joueur" relationship="DEPENDENCY">
+      <point x="8.823611570247891" y="-14.5" />
+      <point x="142.992" y="375.0" />
+      <point x="311.93457300275486" y="375.0" />
+      <point x="311.93457300275486" y="328.5" />
+      <point x="322.935" y="328.5" />
+      <point x="322.935" y="319.75" />
+      <point x="323.0" y="319.75" />
+      <point x="11.06542699724514" y="15.0" />
+    </edge>
+    <edge source="Jeu.Joueur" target="Jeu.Partie" relationship="DEPENDENCY">
+      <point x="-29.999573002754857" y="14.5" />
+      <point x="281.935" y="323.5" />
+      <point x="157.992" y="323.5" />
+      <point x="23.82361157024789" y="-14.5" />
+    </edge>
+    <edge source="Jeu.Joueur" target="util.Console" relationship="DEPENDENCY">
+      <point x="-14.999573002754857" y="-14.5" />
+      <point x="296.935" y="240.0" />
+      <point x="203.492" y="240.0" />
+      <point x="-7.98898071820986E-5" y="14.5" />
+    </edge>
+    <edge source="Jeu.Paquet" target="Jeu.Série" relationship="DEPENDENCY">
+      <point x="-7.98898071820986E-5" y="14.5" />
+      <point x="384.117" y="446.5" />
+      <point x="52.0" y="446.5" />
+      <point x="52.0" y="348.5" />
+      <point x="-7.0" y="348.5" />
+      <point x="-7.0" y="60.5" />
+      <point x="-41.50002479338842" y="0.0" />
+    </edge>
+    <edge source="Jeu.Série" target="Jeu.Carte" relationship="TO_MANY">
+      <point x="-2.479338841965273E-5" y="-14.5" />
+      <point x="82.907" y="-26.0" />
+      <point x="336.375" y="-26.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="util.Demo" target="util.Console" relationship="DEPENDENCY">
+      <point x="-7.98898071820986E-5" y="-14.5" />
+      <point x="190.992" y="240.0" />
+      <point x="203.492" y="240.0" />
+      <point x="-7.98898071820986E-5" y="14.5" />
+    </edge>
+    <edge source="Jeu.Paquet" target="Jeu.Carte" relationship="CREATE">
+      <point x="48.0" y="0.0" />
+      <point x="464.6170798898072" y="414.5" />
+      <point x="464.6170798898072" y="14.5" />
+      <point x="42.5" y="0.0" />
+    </edge>
+    <edge source="Jeu.Partie" target="Jeu.Plateau" relationship="CREATE">
+      <point x="0.0" y="14.5" />
+      <point x="134.1683884297521" y="527.5" />
+      <point x="37.0" y="527.5" />
+      <point x="-22.0" y="14.5" />
+    </edge>
+    <edge source="Jeu.Partie" target="Jeu.Carte" relationship="DEPENDENCY">
+      <point x="-6.176388429752095" y="-14.5" />
+      <point x="127.992" y="161.0" />
+      <point x="243.0" y="161.0" />
+      <point x="243.0" y="14.5" />
+      <point x="-42.5" y="0.0" />
+    </edge>
+    <edge source="Jeu.Plateau" target="Jeu.Série" relationship="CREATE">
+      <point x="15.0" y="-14.5" />
+      <point x="74.0" y="147.0" />
+      <point x="66.0" y="147.0" />
+      <point x="-16.907024793388416" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="true" x="230.5" y="255.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
