@@ -16,6 +16,21 @@ public class PartieTest {
 
     @Test
     public void jouerTour() {
+        ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
+        Joueur simon = new Joueur("simon");
+        simon.ajouterTetesDeBoeufs(53);
+        Joueur alban = new Joueur("alban");
+        alban.ajouterTetesDeBoeufs(2);
+        Joueur marwan = new Joueur("marwan");
+        marwan.ajouterTetesDeBoeufs(18);
+        Joueur steven = new Joueur("steven");
+        steven.ajouterTetesDeBoeufs(56);
+        joueurs.add(simon);
+        joueurs.add(alban);
+        joueurs.add(marwan);
+        joueurs.add(steven);
+
+        Partie partie = new Partie(joueurs);
     }
 
     @Test

@@ -45,12 +45,21 @@ public class Joueur {
     }
 
     /**
-     * Retourne le nombre de têtes de boeufs ramassés au total par un joueur
-     * @return
+     * Retourne le nombre de têtes de boeufs ramassés pendant ce tour par un joueur
+     * @return NbTetesDeBoeufsRamasséesCeTour
      */
-    public int getNbTetesDeBoeufsRamassées(){
+    public int getNbTetesDeBoeufsRamasséesCeTour(){
         return NbTetesDeBoeufsRamasséesCeTour;
     }
+
+    /**
+     * Retourne le nombre de têtes de boeufs ramassés au total par un joueur
+     * @return nbTetesDeBoeufsRamassées
+     */
+    public int getNbTetesDeBoeufsRamassées() {
+        return nbTetesDeBoeufsRamassées;
+    }
+
     /**
      * Indique la valeur de la carte choisie par le joueur lors du tour
      * @return la valeur de la carte choisie

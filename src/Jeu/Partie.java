@@ -65,6 +65,7 @@ public class Partie {
                 int difference = i - plateau.getSéries().get(0).getLastCarte().getValeur();
                 int sérieOuPlacer = 0;
                 boolean posable = false;
+                boolean posablePlein = false;
                 for (int compt = 0; compt < plateau.getSéries().size(); compt++) {
                     if ((difference < 0 && difference < i - plateau.getSéries().get(compt).getLastCarte().getValeur())
                             || (plateau.getSéries().get(compt).getLastCarte().getValeur() > 0 && plateau.getSéries().get(compt).getLastCarte().getValeur() < difference)) {
@@ -73,14 +74,25 @@ public class Partie {
                         sérieOuPlacer = compt;
                         posable = true;
                     }
-                    if(difference < 0) posable = false;
-                    if(plateau.getSéries().get(compt).estPleine()) posable = true;
+                    if(plateau.getSéries().get(compt).estPleine()){
+                        posablePlein = true;
+                        posable = false;
+                    }
+                    if(difference < 0){
+                        posable = false;
+                        posablePlein = false;
+                    }
                 }
                 if (posable) {
                     joueurARamassé = true;
                     Joueur j = this.getJoueurParCarteChoisie(i);
                     j.ajouterTetesDeBoeufs(plateau.getNbTeteDeBoeufsFromSérie(sérieOuPlacer));
                     plateau.clearSérie(sérieOuPlacer);
+                    j.poser(plateau);
+                }
+                else if(posablePlein) {
+                    joueurARamassé = true;
+                    Joueur j = this.getJoueurParCarteChoisie(i);
                     j.poser(plateau);
                 }
                 else {
@@ -118,22 +130,9 @@ public class Partie {
      */
     public String toStringFinal(){
         String tmp ="** Score final\n";
-        /**Joueur jTmp;// Tri à bulles
-        System.out.println(joueurs.toString());
-        for (int i = 0 ; i < joueurs.size() ; i++){
-            for (int j = 0 ; j < joueurs.size() ; j++){
-                if (joueurs.get(i).getNbTetesDeBoeufsRamassées()>joueurs.get(j).getNbTetesDeBoeufsRamassées()){
-                    jTmp = joueurs.get(i);
-                    joueurs.set(i,joueurs.get(j));
-                    joueurs.set(j,jTmp);
-                    System.out.println(joueurs.toString());
-                }
-            }
-        }*/
         boolean permut = true;
         int passage = 0;
         Joueur jTmp;
-        System.out.println(joueurs.toString());
         while(permut == true){
             permut = false;
             passage++;
@@ -143,7 +142,6 @@ public class Partie {
                     jTmp = joueurs.get(i);
                     joueurs.set(i,joueurs.get(i+1));
                     joueurs.set(i+1,jTmp);
-                    System.out.println(joueurs.toString());
                 }
             }
         }
@@ -153,6 +151,10 @@ public class Partie {
         return tmp;
     }
 
+    /**
+     * Indique l'initialisaton de la partie
+     * @return tmp une chaine de caractère
+     */
     public String toStringInit(){
         String tmp = new String();
         tmp+="Les "+joueurs.size()+" joueurs sont";
