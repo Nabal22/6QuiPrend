@@ -16,7 +16,6 @@ public class JoueurTest {
         joueur1.ajouterTetesDeBoeufs(14);
         assertTrue(joueur1.getNbTetesDeBoeufsRamassées() == 14);
         assertFalse(joueur1.getNbTetesDeBoeufsRamassées() == 18);
-        System.out.println(joueur1.toStringFinal());
         assertTrue(joueur1.toStringFinal().equals("joueur1 a ramassé 14 têtes de boeufs\n"));
     }
 
