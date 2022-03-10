@@ -11,6 +11,10 @@ import static org.junit.Assert.*;
 
 public class MainTest {
 
+    /**
+     * Dans ce test, nous testons si le constructeur et la méthode ajouterCarteDe constitue une main. Nous
+     * testons aussi la méthode toString en comparant avec le résultat souhaité
+     */
     @Test
     public void testMain() {
         Main m = new Main();
@@ -25,8 +29,11 @@ public class MainTest {
 
     }
 
+    /**
+     * Dans ce test, nous testons si la méthode getCarteMainByValeur renvoie la bonne carte depuis la valeur choisie
+     */
     @Test
-    public void getCarteMainByValeur() {
+    public void testGetCarteMainByValeur() {
         Main m = new Main();
         ArrayList<Carte> temp = new ArrayList<>();
         for (int i = 10; i >0; i--) {
@@ -42,8 +49,12 @@ public class MainTest {
         assertTrue(c.toString().equals(" 5 (2)"));
     }
 
+
+    /**
+     * Dans ce test, nous testons si la méthode getNbCartesMain renvoie le bon nombre de carte en main
+     */
     @Test
-    public void getNbCartesMain() {
+    public void testGetNbCartesMain() {
         Main m = new Main();
         ArrayList<Carte> temp = new ArrayList<>();
         for (int i = 10; i >0; i--) {
@@ -55,6 +66,9 @@ public class MainTest {
         assertTrue(m.getNbCartesMain() == 10);
     }
 
+    /**
+     *  Dans ce test, nous testons si la méthode trierMain trie les cartes dans l'ordre croissant de valeur
+     */
     @Test
     public void trierMain() {
         Main m = new Main();

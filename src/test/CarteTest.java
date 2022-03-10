@@ -8,6 +8,9 @@ import static org.junit.Assert.assertTrue;
 
 public class CarteTest {
 
+    /**
+     * Dans ce test, nous testons si le contructeur de carte initialise bien la carte et nous testons aussi la méthode toString
+     */
     @Test
     public void testCarte() {
         Carte a = new Carte(1); Carte b = new Carte(1);
@@ -16,6 +19,9 @@ public class CarteTest {
         assertFalse(a.toString().equals(c.toString()));
     }
 
+    /**
+     * Dans ce test, nous testons si les valeurs initialiser sont correctes
+     */
     @Test
     public void testGet() {
         Carte a = new Carte(5);

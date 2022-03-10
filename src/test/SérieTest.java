@@ -9,8 +9,11 @@ import static org.junit.Assert.*;
 
 public class SérieTest {
 
+    /**
+     * Dans ce test, nous testons si la méthode ajouter ajoute bien la carte voulu dans la série
+     */
     @Test
-    public void ajouter() {
+    public void testAjouter() {
         Série série = new Série();
         Carte carte10 = new Carte(10);
         série.ajouter(carte10);
@@ -18,6 +21,9 @@ public class SérieTest {
     }
 
 
+    /**
+     * Dans ce test, nous testons si toString renvoie la valeur attendu de la série
+     */
     @Test
     public void testToString() {
         Série série = new Série();
@@ -29,8 +35,11 @@ public class SérieTest {
         assertTrue(série.toString().equals(" 10 (3), 2"));
     }
 
+    /**
+     * Dans ce test, nous testons dans plusieurs cas de figures si la série est pleine ou non
+     */
     @Test
-    public void estPleine() {
+    public void testEstPleine() {
         Série série = new Série();
         assertFalse(série.estPleine());
         Carte carte10 = new Carte(10);
@@ -51,14 +60,23 @@ public class SérieTest {
 
     }
 
+    /**
+     * Dans ce test, nous testons si la série est vide
+     */
     @Test
-    public void estVide() {
+    public void testEstVide() {
         Série série = new Série();
         assertTrue(série.estVide());
+        Carte carte76 = new Carte(76);
+        série.ajouter(carte76);
+        assertFalse(série.estVide());
     }
 
+    /**
+     * Dans ce test, nous testons si la série se clear grâce à la méthode clear
+     */
     @Test
-    public void clear() {
+    public void testClear() {
         Série série = new Série();
         Carte carte10 = new Carte(10);
         série.ajouter(carte10);
@@ -69,7 +87,9 @@ public class SérieTest {
         assertTrue(série.estVide());
     }
 
-
+    /**
+     * Dans ce test, nous testons si la méthode getNbTeteBoeufs renvoie le bon nombre de têtes de boeufs de la série
+     */
     @Test
     public void getNbTeteDeBoeufs() {
         Série série = new Série();

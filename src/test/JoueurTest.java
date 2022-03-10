@@ -10,6 +10,10 @@ import static org.junit.Assert.*;
 
 public class JoueurTest {
 
+
+    /**
+     * Dans ce test, nous testons si la méthodes d'ajout de têtes de boeufs sur un joueur ajoute la bonne quantité, nous testons aussi le toStringFinal et le constructeur
+     */
     @Test
     public void testAjouterTetesDeBoeufs() {
         Joueur joueur1 = new Joueur("joueur1");
@@ -20,8 +24,12 @@ public class JoueurTest {
     }
 
 
+    /**
+     * Dans ce test, nous testons la pioche d'un joueur si il pioche des cartes d'une liste de 1 à 10, il doit avoir 10 cartes en main. Nous testons les méthodes
+     * piocher et nbCartesDansMain
+     */
     @Test
-    public void piocher() {
+    public void testPiocher() {
         Joueur j = new Joueur("alban");
         ArrayList<Carte> temp = new ArrayList<>();
         for (int i = 10; i >0; i--) {
@@ -33,6 +41,9 @@ public class JoueurTest {
         assertTrue(j.nbCartesDansMain() == 10);
     }
 
+    /**
+     * Dans ce test, nous testons le toString renvoyer le nom du joueur
+     */
     @Test
     public void testToString() {
         Joueur joueur1 = new Joueur("joueur1");
@@ -43,6 +54,9 @@ public class JoueurTest {
         assertFalse(joueur2.toString().equals("joueur1"));
     }
 
+    /**
+     * Dans ce test, nous testons si le toStringFinal renvoie la chaine de caractère souhaité. Nous testons les méthodes toStringFinal et ajouterTetesDeBoeufs
+     */
     @Test
     public void toStringFinal() {
         Joueur joueur1 = new Joueur("joueur1");

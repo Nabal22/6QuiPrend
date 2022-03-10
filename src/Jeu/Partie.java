@@ -162,7 +162,7 @@ public class Partie {
         {
             if (i == joueurs.size()-1)
                 tmp+=" "+ joueurs.get(i).toString()+". Merci de jouer à 6 qui prend !";
-            else if (i == joueurs.size()-2) tmp+=" "+ joueurs.get(i).toString()+" et ";
+            else if (i == joueurs.size()-2) tmp+=" "+ joueurs.get(i).toString()+" et";
             else
                 tmp+=" "+ joueurs.get(i).toString()+",";
         }
@@ -239,10 +239,6 @@ public class Partie {
             else
                 tmp += " "+valeursCartesChoisies.get(i) +" (" +
                         getJoueurParCarteChoisie(valeursCartesChoisies.get(i)).toString() + ")," ;
-        }
-        //a quoi sert cette boucle ???
-        for(int vCartes : valeursCartesChoisies){
-
         }
         if (vontEtrePosées) return tmp+"vont être posées.";
         else return tmp+"ont été posées.";
