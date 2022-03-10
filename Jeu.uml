@@ -6,7 +6,7 @@
     <node x="41.407024793388416" y="46.0">Jeu.Série</node>
     <node x="92.1683884297521" y="400.0">Jeu.Partie</node>
     <node x="293.875" y="0.0">Jeu.Carte</node>
-    <node x="156.05750688705228" y="481.0">Appli</node>
+    <node x="156.05750688705228" y="481.0">appli.Application</node>
     <node x="265.43457300275486" y="277.0">Jeu.Joueur</node>
     <node x="336.1170798898072" y="400.0">Jeu.Paquet</node>
     <node x="10.5" y="174.0">Jeu.Plateau</node>
@@ -16,7 +16,7 @@
   </nodes>
   <notes />
   <edges>
-    <edge source="Appli" target="Jeu.Paquet" relationship="CREATE">
+    <edge source="appli.Application" target="Jeu.Paquet" relationship="CREATE">
       <point x="0.0" y="-14.5" />
       <point x="199.05750688705228" y="461.5" />
       <point x="399.117" y="461.5" />
@@ -29,7 +29,7 @@
       <point x="271.0" y="14.5" />
       <point x="-42.5" y="0.0" />
     </edge>
-    <edge source="Appli" target="Jeu.Plateau" relationship="DEPENDENCY">
+    <edge source="appli.Application" target="Jeu.Plateau" relationship="DEPENDENCY">
       <point x="-42.99950688705229" y="0.0" />
       <point x="74.668" y="495.5" />
       <point x="74.668" y="222.0" />
@@ -49,7 +49,7 @@
       <point x="336.375" y="60.0" />
       <point x="0.0" y="14.5" />
     </edge>
-    <edge source="Appli" target="Jeu.Partie" relationship="CREATE">
+    <edge source="appli.Application" target="Jeu.Partie" relationship="CREATE">
       <point x="-35.5" y="-14.5" />
       <point x="29.389118457300185" y="14.5" />
     </edge>
@@ -90,7 +90,7 @@
       <point x="326.935" y="181.5" />
       <point x="0.06792011019280153" y="14.5" />
     </edge>
-    <edge source="Appli" target="Jeu.Joueur" relationship="CREATE">
+    <edge source="appli.Application" target="Jeu.Joueur" relationship="CREATE">
       <point x="43.0" y="0.0" />
       <point x="449.6170798898072" y="495.5" />
       <point x="449.6170798898072" y="348.5" />

@@ -85,8 +85,7 @@ public class Plateau {
             }
             if(s.estPleine() || difference < 0) retour = false;
         }
-        return retour;
-    }
+        return retour;    }
 
     /**
      * Indique les séries et leur contenu (carte)

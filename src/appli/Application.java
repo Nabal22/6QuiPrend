@@ -1,3 +1,5 @@
+package appli;
+
 import Jeu.Joueur;
 import Jeu.Paquet;
 import Jeu.Partie;
@@ -9,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /** Classe de la méthode main */
-public class Appli {
+public class Application {
 
     public static void main(String[] args) {
         Partie partie = new Partie(enregistrementJoueur());
