@@ -1,5 +1,5 @@
 # 6QuiPrend
-Jeu du "6 Qui Prend" réalisé par [Alban Talagrand](https://github.com/Nabal22) et [Simon Regenwetter](https://github.com/Lesneo) dans le cadre du projet de la ressource **Développement orienté objets** de première année de BUT Informatique.
+Jeu du "6 Qui Prend" réalisé dans le cadre du projet de la ressource **Développement orienté objets** de première année de BUT Informatique.
 ## Liens
 ### Documentation
 Consultez la documentation du projet générée par Javadoc : [Documentation 6QuiPrend](https://6quiprend-at-sw-uparis.netlify.app/)
